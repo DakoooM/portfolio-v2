@@ -1,0 +1,52 @@
+.Homepage {
+
+  .Presentation {
+    width: 100%;
+    min-height: 400px;
+    background-color: aliceblue;
+    @include flex(flex, center, center, row, wrap, 20px, 40px);
+    box-shadow: inset 2px 10px 10px 0 rgba(0 0 0 / 5%);
+    padding: 40px 20px;
+    overflow-x: hidden;
+
+    .logo-personnal {
+      user-select: none;
+      border-radius: 50px;
+      box-shadow: 2px 2px 5px 0 rgba(0 0 0 / 20%);
+
+      @include for-size(desktop-up) {
+        position: absolute;
+        left: 20%;
+        transform: translateX(-50%) rotate(-5deg);
+        z-index: 1;
+        box-shadow: none;
+        opacity: .1;
+      }
+    }
+
+    .boxPresent {
+      z-index: 2;
+      @include flex(flex, flex-start, flex-start, column, wrap, 0, 10px);
+      
+      .pDesc {
+        font-style: italic;
+        font-size: 15px;
+        word-spacing: 3px;
+        line-height: 23px;
+        max-width: 700px;
+
+        .imp {
+          // padding: 0 2px;
+          color: #4589d7;
+          // background-color: #4589d7;
+          // border-radius: 2px;
+        }
+      }
+
+      .buttonsPresent {
+        @include flex(flex, space-between, center, row, wrap, 10px, 20px);
+      }
+    }
+
+  }
+}

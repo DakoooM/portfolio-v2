@@ -1,0 +1,105 @@
+$navbarHeight: 80px;
+
+.Navbar {
+  height: $navbarHeight;
+  padding: 0 40px;
+  box-shadow: 0px 0px 10px 1px rgba(0 0 0 / 10%);
+
+  @include flex(
+    $display: flex,
+    $contents: space-between,
+    $items: center,
+    $direction: row,
+    $wrap: nowrap
+  );
+
+  &.responsive {
+    transition: background-color 500ms ease;
+
+    .Right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 50px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 998;
+      background-color: #fffffffa;
+    }
+  }
+
+  .Left {
+    .Logo {
+      width: 60px;
+      height: 60px;
+      user-select: none;
+      transition: transform 1s ease;
+      
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  
+  .Right {
+    transition: background-color 500ms ease;
+
+    @include flex(
+      $display: flex,
+      $contents: space-between,
+      $items: center,
+      $direction: row,
+      $wrap: nowrap,
+      $gap-x: 20px
+    );
+
+    @include for-size(tablet-landscape-up) {
+      display: none;
+
+      div.hamburger-react {
+        display: block;
+      }
+    }
+      
+    .NavbarItem {
+      color: #16273A;
+      text-decoration: none;
+      font-family: "Roboto";
+      font-weight: 500;
+      font-size: 0.9em;
+      transition: color 500ms ease, transform 200ms ease;
+      will-change: color, transform;
+
+      @include flex(
+        $display: flex,
+        $contents: center,
+        $items: center,
+        $direction: row,
+        $wrap: nowrap,
+        $gap-x: 5px
+      );
+      
+      &.active, &:hover {
+        transform: scale(1.1);
+        color: #4589d7;
+      }
+
+      &.active {
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+  }
+
+  div.hamburger-react {
+    display: none;
+    z-index: 999;
+
+    @include for-size(tablet-landscape-up) {
+      display: block;
+    }
+  }
+}

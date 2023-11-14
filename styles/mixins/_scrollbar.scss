@@ -1,0 +1,36 @@
+@mixin scrollbar(
+  $display: true,
+  $width: 7px,
+  $height: 5px,
+  $radius: 0px,
+  $color: blueviolet,
+  $active_color: none,
+  $active_size: 2px,
+  $bg: transparent
+) {
+  &::-webkit-scrollbar-track {
+    background-color: $bg;
+  }
+
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+
+    @if $display ==false {
+      display: none;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius;
+    background-color: $color;
+
+    &:active {
+      @if $active_color == none {
+        outline: $active_size $color solid;
+      } @else {
+        outline: $active_size $active_color solid;
+      }
+    }
+  }
+}

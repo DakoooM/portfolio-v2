@@ -1,0 +1,163 @@
+.Button {
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+
+  @include for-size(mobile-m) {
+    width: 100%;
+  }
+
+  &.rounded {
+    border-radius: 30px;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+
+    color: grey;
+    background: #707070;
+    border: 2px #707070 solid;
+
+    &.outlined {
+      background: transparent;
+    }
+  }
+
+  &.contained {
+    will-change: filter;
+    background: black;
+    color: white;
+
+    &.success {
+      border: 2px #16a085 solid;
+      background: #16a085;
+    }
+
+    &.danger {
+      border: 2px #e74c3c solid;
+      background: #e74c3c;
+    }
+
+    &.warning {
+      background: #2980b9;
+      border: 2px #2980b9 solid;
+
+    }
+  
+    &.primary {
+      background: #2980b9;
+      border: 2px #2980b9 solid;
+
+      &:hover {
+        background: rgba(41 128 185 / 90%);
+      }
+    }
+  
+    &.purple {
+      background: blueviolet;
+      border: 2px blueviolet solid;
+
+      &:hover {
+        background: rgba(138 43 226 / 90%);
+      }
+    }
+  }
+
+  &.outlined {
+    background: transparent;
+    border: 2px black solid;
+    color: black;
+    transition: background-color 200ms ease, color 200ms;
+    will-change: color;
+
+    &.success {
+      border: 2px #16a085 solid;
+      color: #16a085;
+
+      &:hover {
+        background-color: rgba(22 160 133 / 20%);
+      }
+    }
+
+    &.danger {
+      border: 2px #e74c3c solid;
+      color: #e74c3c;
+
+      &:hover {
+        background-color: rgba(231 76 60 / 20%);
+      }
+    }
+
+    &.warning {
+      border: 2px #f39c12 solid;
+      color: #f39c12;
+
+      &:hover {
+        background-color: rgba(243 156 18 / 20%);
+      }
+    }
+  
+    &.primary {
+      border: 2px #2980b9 solid;
+      color: #2980b9;
+
+      &:hover {
+        background-color: rgba(41 128 185 / 20%);
+      }
+    }
+  
+    &.purple {
+      border: 2px #8a2be2 solid;
+      color: blueviolet;
+
+      &:hover {
+        background-color: rgba(138 43 226 / 100%);
+        color: white;
+      }
+    }
+  }
+
+  &:disabled {
+    color: grey;
+    background: #707070;
+    border: 2px #707070 solid;
+
+    &.outlined {
+      background: transparent;
+    }
+  }
+
+  .icon {
+    @include flex(
+      $contents: center,
+      $items: center,
+    );
+
+    font-size: 25px;
+  }
+
+  &.small {
+    font-size: 15px;
+
+    .icon {
+      font-size: 25px;
+    }
+  }
+
+  &.large {
+    font-size: 20px;
+
+    .icon {
+      font-size: 30px;
+    }
+  }
+
+  &.big {
+    font-size: 25px;
+
+    .icon {
+      font-size: 35px;
+    }
+  }
+}

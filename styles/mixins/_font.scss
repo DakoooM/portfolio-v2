@@ -1,0 +1,13 @@
+/// @param {string} $name - Nom qu'on souhaite donner
+/// @param {string} $chemin - Chemin de la police d'écriture 
+/// @param {string} $format - Format (truetype/woff...)
+/// @example @include font("Inter", "fonts.google.com/inter", "truetype");
+@mixin font($name, $chemin, $format: "truetype") {
+  @font-face {
+    font-family: $name;
+    src: url($chemin) format($format);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+}

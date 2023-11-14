@@ -1,0 +1,69 @@
+@mixin textOrientation($orientation: left) {
+  @if $orientation == left {
+    transform-origin: bottom left;
+  } @else if $orientation == right {
+    transform-origin: bottom right;
+  } @else if $orientation == center {
+    transform-origin: bottom center;
+  }
+}
+
+@mixin text_line_hover(
+  $orientation: left, 
+  $color: #0D52FF, 
+  $width: 100%, 
+  $time: 500ms, 
+  $height: 3px, 
+  $bottom: 0px
+) {
+  position: relative;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    width: $width;
+    transform: scaleX(0);
+    height: $height;
+    bottom: $bottom;
+    left: 0;
+    background-color: $color;
+    @include textOrientation($orientation);
+    
+    transform-origin: bottom right;
+    transition: transform $time ease-out;
+  }
+
+  &:hover {
+
+    &:after {
+      transform: scaleX(1);
+      @include textOrientation($orientation);
+    }
+  } 
+}
+
+@mixin text_line(
+  $orientation: left, 
+  $color: #0D52FF, 
+  $width: 100%, 
+  $time: 500ms, 
+  $height: 3px, 
+  $bottom: 0px
+) {
+  position: relative;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    width: $width;
+    transform: scaleX(1);
+    height: $height;
+    bottom: $bottom;
+    left: 0;
+    background-color: $color;
+    @include textOrientation($orientation);
+    
+    transform-origin: bottom right;
+    animation: width $time;
+  }
+}

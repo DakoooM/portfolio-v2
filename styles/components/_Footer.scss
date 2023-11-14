@@ -1,0 +1,43 @@
+.FooterTopbar {
+  @include flex(flex, center, center, row, wrap, 20px, 10px);
+  width: 100%;
+  min-height: 100px;
+  background: linear-gradient(0deg, #adc8fe, 30%, transparent);
+
+  .Logo {
+    height: 80px;
+    width: 80px;
+    user-select: none;
+  }
+
+  .socials {
+    @include flex(flex, center, center, row, nowrap, 10px, 10px);
+
+    .social {
+      border-radius: 50%;
+      @include flex(flex, center, center);
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      border: 2px solid #16273A;
+      color: #16273A;
+      transition: background-color 400ms ease, transform 200ms ease, color 200ms ease;
+      will-change: transform, color;
+
+      &:hover {
+        color: white;
+        transform: scale(1.05);
+        background: #16273A;
+      }
+    }
+  }
+}
+
+.Footer {
+  padding: 0 40px;
+  min-height: 200px;
+  @include flex(flex, space-between, center, row, wrap, 20px, 20px);
+
+  .Logo {
+  }
+}

@@ -1,0 +1,37 @@
+@mixin for-size($size) {
+  @if $size ==phone-only {
+    @media (max-width: 599px) {
+      @content;
+    }
+  }
+
+  @else if $size ==tablet-portrait-up {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @else if $size ==mobile-m {
+    @media (max-width: 375px) {
+      @content;
+    }
+  }
+
+  @else if $size == tablet-landscape-up {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+
+  @else if $size ==desktop-up {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @else if $size ==big-desktop-up {
+    @media (max-width: 1800px) {
+      @content;
+    }
+  }
+}

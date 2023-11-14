@@ -1,0 +1,24 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@lordicon/react": "^1.2.3",
+    "hamburger-react": "^2.5.0",
+    "leaflet-defaulticon-compatibility": "^0.1.2",
+    "next": "14.0.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^4.11.0",
+    "react-leaflet": "^4.2.1",
+    "react-top-loading-bar": "^2.3.1",
+    "resend": "^2.0.0",
+    "sass": "^1.69.5"
+  }
+}
