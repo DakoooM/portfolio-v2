@@ -1,0 +1,63 @@
+.CardSkillContainer {
+  margin-top: 20px;
+  border-top: 2px solid #eaeaea;
+  padding-top: 50px;
+  @include flex(flex, space-between, center, row, wrap, 20px, 40px);
+  width: 80%;
+}
+
+.CardSkill {
+  @include flex(flex, center, center, row, wrap, 20px, 10px);
+  width: 45%;
+  max-width: 100%;
+  min-width: 300px;
+  cursor: pointer;
+
+  @include for-size(tablet-landscape-up) {
+    width: 100%;
+    min-width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  &:hover {
+    .cardLeft {
+      background-color: #2980b9;
+
+      .cardIcon {
+        color: white;
+      }
+    }
+  }
+
+  .cardLeft {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #2980b9;
+    @include flex(flex, center, center);
+    transition: background-color 300ms ease, color 300ms ease;
+
+    .cardIcon {
+      color: #2980b9;
+    }
+  }
+  
+  .cardRight {
+
+    .cardTitle {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  
+    .cardDesc {
+      font-size: 16px;
+      max-width: 300px;
+      text-align: center;
+      color: grey;
+    }
+  }
+}

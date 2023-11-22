@@ -6,6 +6,7 @@
 @import "./mixins/responsive";
 @import "./mixins/scrollbar";
 @import "./mixins/textline";
+@import "./mixins/textGradient";
 
 // Components
 @import "./components/Navbar";
@@ -13,6 +14,7 @@
 @import "./components/Heading";
 @import "./components/Button";
 @import "./components/TextLine";
+@import "./components/CardSkill";
 
 // Pages
 @import "./pages/Homepage";

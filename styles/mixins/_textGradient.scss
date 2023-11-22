@@ -1,0 +1,6 @@
+@mixin TextGradient($rotate: 0, $colors_one: blue, $color_two: red) {
+  background: -webkit-linear-gradient(#{$rotate}deg, #{$colors_one}, #{$color_two});
+  // background-clip: "text";
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

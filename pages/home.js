@@ -1,9 +1,14 @@
 import Button from "@/components/Button";
+import { CardSkill, CardSkillContainer } from "@/components/CardSkill";
 import Heading from "@/components/Heading";
 import HtmlHeader from "@/components/HtmlHeader";
 import Section from "@/components/Section";
 import MaTete from "@/public/ma-tete.jpg";
 import Image from "next/image";
+import { IoBulbOutline } from "react-icons/io5";
+import { FiEdit } from "react-icons/fi";
+import { CardSkillsItems } from "@/config";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
   return (
@@ -17,13 +22,13 @@ export default function Home() {
         <Image src={MaTete} height={300} draggable={false} className="logo-personnal" />
 
         <div className="boxPresent">
-          <Heading level={1}>
+          <Heading level={1} className="TitlePresent">
             Cassinis Giovani<br />
-            Développeur Web Freelance
+            <span className="titles">Développeur Web Freelance</span>
           </Heading>
 
           <p className="pDesc">
-            Bonjour, Je m'appel Giovani, j'ai <span className="imp">21 ans</span> et je suis passionée d'informatique depuis l'âge de <span className="imp">13-14 ans</span>. j'ai a mon actif <span className="imp">beaucoup de compétences</span> en proggramation ou dans beaucoup de logiciels tels que Adobe Photoshop, Adobe After Effects, Sony vegas pro ect...
+            21 ans et passionée d'informatique depuis l'âge de 13 ans.
           </p>
 
           <div className="buttonsPresent">
@@ -32,10 +37,28 @@ export default function Home() {
           </div>
         </div>
       </Section>
-      <Section className="Competences" uniqueId="mes-services">
-        <Heading level={2}>
-          MES SERVICES
-        </Heading>
+      <Section className="Services" uniqueId="mes-services">
+        <div className="topServices">
+          <Heading level={2} className="titleService">
+            MES SERVICES
+          </Heading>
+
+          <p className="ServiceDesc">Des prestations adaptées à vos besoins</p>
+
+          <CardSkillContainer>
+            {
+              CardSkillsItems.map(item => {
+                const uniqueId = uuidv4();
+
+                return (
+                  <CardSkill title={item.title} icon={item.icon} key={uniqueId}>
+                    {item.description}
+                  </CardSkill>
+                )
+              })
+            }
+          </CardSkillContainer>
+        </div>
       </Section>
     </div>
   )

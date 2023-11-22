@@ -4,14 +4,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Pivot as Hamburger } from "hamburger-react";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-function NavbarItem({ 
-  to = "/", 
-  label = undefined, 
-  children = undefined 
+function NavbarItem({
+  to = "/home",
+  label = undefined,
+  children = undefined
 }) {
   const { pathname } = useRouter();
-  
+
   return (
     <Link className={to === pathname ? "NavbarItem active" : "NavbarItem"} href={to}>
       {children || label}
@@ -25,22 +26,25 @@ function Navbar({ logo }) {
   return (
     <div className={toogleHamburger ? "Navbar responsive" : "Navbar"}>
       <div className="Left">
-        <Link href="/">
-          <Image src={logo} width={60} height={60} draggable={false} className="Logo"/>
+        <Link href="/home">
+          <Image src={logo} width={60} height={60} draggable={false} className="Logo" />
         </Link>
       </div>
 
       <div className="Right">
         {
-          NavItems.map(item => 
-            <NavbarItem to={item.to}>
-              {item.icon(15)}{item.label}
-            </NavbarItem>
-          )
+          NavItems.map(item => {
+            const uniqueId = uuidv4();
+            return (
+              <NavbarItem to={item.to} key={uniqueId}>
+                {item.icon(15)}{item.label}
+              </NavbarItem>
+            )
+          })
         }
       </div>
 
-      <Hamburger duration={0.5} toggled={toogleHamburger} toggle={setToogleHamburger}/>
+      <Hamburger duration={0.5} toggled={toogleHamburger} toggle={setToogleHamburger} />
     </div>
   )
 }
