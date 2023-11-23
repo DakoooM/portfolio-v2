@@ -42,8 +42,24 @@
   } 
 }
 
+@mixin TextOrientationLine($orientation: center) {
+  @if $orientation == left {
+    transform-origin: bottom left;
+    left: 0;
+  } @else if $orientation == center {
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%);
+  } @else if $orientation == right {
+    right: 0;
+    transform-origin: bottom right;
+
+  }
+}
+
+
 @mixin text_line(
-  $orientation: left, 
+  $orientation: center, 
   $color: #0D52FF, 
   $width: 100%, 
   $time: 500ms, 
@@ -61,9 +77,9 @@
     bottom: $bottom;
     left: 0;
     background-color: $color;
-    @include textOrientation($orientation);
+    @include TextOrientationLine($orientation);
     
     transform-origin: bottom right;
-    animation: width $time;
+    animation: width $time $time;
   }
 }

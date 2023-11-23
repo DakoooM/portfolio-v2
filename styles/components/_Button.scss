@@ -1,6 +1,7 @@
 .Button {
   padding: 10px 20px;
   text-align: center;
+  user-select: none;
   text-decoration: none;
 
   @include for-size(mobile-m) {
@@ -28,6 +29,8 @@
     will-change: filter;
     background: black;
     color: white;
+    font-weight: 500;
+    transition: background-color 200ms ease, color 200ms;
 
     &.success {
       border: 2px #16a085 solid;
@@ -42,7 +45,6 @@
     &.warning {
       background: #2980b9;
       border: 2px #2980b9 solid;
-
     }
   
     &.primary {
