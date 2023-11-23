@@ -3,7 +3,7 @@
   .Presentation {
     position: relative;
     width: 100%;
-    min-height: 900px;
+    min-height: 980px;
     background-color: aliceblue;
     background-image: url("/bg_homepage.jpg");
     background-size: cover;
@@ -31,7 +31,7 @@
       text-shadow: 0 0 20px #ffffff5a;
       
       .titles {
-        text-shadow: 0 0 20px #0a55ce7d;
+        text-shadow: 0 0 20px #0a89ce3f;
         @include TextGradient($rotate: 100, $colors_one: #0a55ce, $color_two: #0aaace);
       }
     }
@@ -58,10 +58,10 @@
       @include flex(flex, flex-start, flex-start, column, wrap, 0, 10px);
       
       .pDesc {
-        font-style: italic;
+        // font-style: italic;
         font-size: 18px;
-        word-spacing: 3px;
-        line-height: 18px;
+        // word-spacing: 3px;
+        // line-height: 18px;
         max-width: 700px;
         color: #d6dfee;
       }
@@ -81,8 +81,25 @@
     .topServices {
       @include flex(flex, center, center, column, nowrap, 0, 10px);
 
-      .titleService, .ServiceDesc {
+      .titleService {
         text-align: center;
+        font-size: 40px;
+
+        @include text_line(
+          $orientation: center, 
+          $color: #2980b9, 
+          $width: 50%,
+          $height: 4px, 
+          $bottom: -10px
+        );
+      }
+      
+      .ServiceDesc {
+        text-align: center;
+        font-size: 25px;
+        font-weight: 500;
+        color: #a3a3a3;
+        margin-top: 15px;
       }
     }
   }

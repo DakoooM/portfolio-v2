@@ -2,7 +2,7 @@
   margin-top: 20px;
   border-top: 2px solid #eaeaea;
   padding-top: 50px;
-  @include flex(flex, space-between, center, row, wrap, 20px, 40px);
+  @include flex(flex, space-between, center, row, wrap, 20px, 70px);
   width: 80%;
 }
 
@@ -36,7 +36,7 @@
     height: 80px;
     border: 2px solid #2980b9;
     @include flex(flex, center, center);
-    transition: background-color 300ms ease, color 300ms ease;
+    transition: background-color 200ms ease, color 200ms ease;
 
     .cardIcon {
       color: #2980b9;
