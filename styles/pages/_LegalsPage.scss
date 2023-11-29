@@ -1,0 +1,37 @@
+.LegalsPage {
+  position: relative;
+  padding: 100px 20px;
+
+  .title {
+    width: fit-content;
+    margin-bottom: 50px;
+    text-align: center;
+
+    @include text_line(
+      $orientation: center, 
+      $color: #0D52FF, 
+      $width: 20%, 
+      $height: 3px,
+      $bottom: -10px
+    );
+  }
+
+  .subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 30px;
+  }
+
+  .text {
+    position: relative;
+    color: var(--color-text-base);
+    font-weight: 500;
+    margin: 10px 0;
+    font-size: 17px;
+    margin-left: 10px;
+
+    .strong {
+      font-weight: 700;
+    }
+  }
+}

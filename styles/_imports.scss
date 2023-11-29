@@ -9,12 +9,20 @@
 @import "./mixins/textGradient";
 
 // Components
+@import "./components/Spinner";
 @import "./components/Navbar";
 @import "./components/Footer";
 @import "./components/Heading";
 @import "./components/Button";
+@import "./components/Inputs";
 @import "./components/TextLine";
 @import "./components/CardSkill";
+@import "./components/CardAdvantage";
+@import "./components/Notification";
 
 // Pages
 @import "./pages/Homepage";
+@import "./pages/Contactpage";
+@import "./pages/LegalsPage";
+@import "./pages/TermsOfUsepage";
+@import "./pages/NotFound";

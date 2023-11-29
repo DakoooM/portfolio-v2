@@ -13,4 +13,5 @@
 .MainContainer {
   flex-grow: 1;
   min-height: 100vh;
+  @include flex(flex, center, center, column, nowrap);
 }

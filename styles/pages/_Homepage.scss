@@ -1,4 +1,5 @@
 .Homepage {
+  width: 100%;
 
   .Presentation {
     position: relative;
@@ -28,11 +29,27 @@
 
     .TitlePresent {
       color: white;
-      text-shadow: 0 0 20px #ffffff5a;
-      
+      // text-shadow: 0 0 20px #ffffff5a;
+
       .titles {
-        text-shadow: 0 0 20px #0a89ce3f;
+        // text-shadow: 0 0 20px #0a89ce3f;
         @include TextGradient($rotate: 100, $colors_one: #0a55ce, $color_two: #0aaace);
+
+        animation: bouger 1s infinite;
+
+        @keyframes bouger {
+          from {
+            background-size: 100%;
+          }
+
+          50% {
+            background-size: 150%;
+          }
+
+          to {
+            background-size: 100%;
+          }
+        }
       }
     }
 
@@ -56,7 +73,7 @@
     .boxPresent {
       z-index: 3;
       @include flex(flex, flex-start, flex-start, column, wrap, 0, 10px);
-      
+
       .pDesc {
         // font-style: italic;
         font-size: 18px;
@@ -84,23 +101,104 @@
       .titleService {
         text-align: center;
         font-size: 40px;
-
-        @include text_line(
-          $orientation: center, 
-          $color: #2980b9, 
-          $width: 50%,
-          $height: 4px, 
-          $bottom: -10px
-        );
+        font-weight: 700;
       }
-      
+
       .ServiceDesc {
         text-align: center;
         font-size: 25px;
         font-weight: 500;
         color: #a3a3a3;
-        margin-top: 15px;
+
+        @include text_line($orientation: center,
+          $color: #2980b9,
+          $width: 10%,
+          $height: 4px,
+          $bottom: -20px);
       }
+    }
+  }
+
+  .Competences {
+    position: relative;
+    width: 100%;
+    padding: 50px;
+    min-height: 600px;
+
+    @include flex(flex, center, center, column, nowrap, 0, 10px);
+
+    .titleComp {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    .compDesc {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 500;
+      color: #a3a3a3;
+
+      @include text_line(
+        $orientation: center,
+        $color: #2980b9,
+        $width: 10%,
+        $height: 4px,
+        $bottom: -20px
+      );
+    }
+
+    .comp_ctn {
+      margin-top: 20px;
+      padding-top: 50px;
+      height: 500px;
+      @include flex(flex, center, center, row, nowrap, 10px, 20px);
+
+      .comp_left {
+
+      }
+
+      .HorizontalSeparator {
+        border: none;
+        width: 3px;
+        height: 100%;
+        flex: 1;
+        background-color: red;
+      }
+
+      .comp_right {
+
+      }
+    }
+  }
+
+  .Tarifs {
+    position: relative;
+    width: 100%;
+    padding: 50px;
+    min-height: 1000px;
+
+    @include flex(flex, center, center, column, nowrap, 0, 10px);
+
+    .titleTarifs {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    .TarifsDesc {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 500;
+      color: #a3a3a3;
+
+      @include text_line(
+        $orientation: center,
+        $color: #2980b9,
+        $width: 10%,
+        $height: 4px,
+        $bottom: -20px
+      );
     }
   }
 }

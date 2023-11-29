@@ -1,0 +1,40 @@
+.ContactPage {
+  position: relative;
+  width: 100%;
+  padding: 100px 0;
+  @include flex(flex, center, center, column, wrap, 20px, 10px);
+
+  .title {
+    text-align: center;
+    font-size: min(max(25px, 7vw), 40px);
+    width: 90%;
+  }
+
+  .desc {
+    width: 90%;
+    color: $color_footer_grey;
+    max-width: 600px;
+    text-align: center;
+    font-size: min(max(13px, 4vw), 18px);
+    margin-bottom: 80px;
+
+    @include text_line(
+      $orientation: center,
+      $color: #0D52FF,
+      $width: 50px,
+      $time: 500ms,
+      $height: 5px,
+      $bottom: -20px
+    );
+  }
+
+  .formulaire {
+    width: 100%;
+    @include flex(flex, center, center, column, wrap, 20px, 50px);
+
+    .row-group {
+      width: 100%;
+      @include flex(flex, center, center, row, wrap, 20px, 50px);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.NotFound {
+  margin-top: 100px;
+  height: 100%;
+  @include flex(flex, center, center, column, nowrap, 0, 10px);
+
+  .align {
+    text-align: center;
+  }
+}
