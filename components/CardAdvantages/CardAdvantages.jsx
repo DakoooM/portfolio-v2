@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
-import Button from "../Button";
+import Button from "../Button/Button";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa";
 
@@ -71,7 +71,7 @@ export const CardAdvantage = ({
       <Button
         leftIcon={<FaRegNewspaper size={20} />}
         rounded={10}
-        style={{ width: "80%", fontWeight: "bold" }}
+        style={{ width: "80%", fontWeight: "bold", fontSize: 15 }}
         onClick={e => onSubmit(e)}>
         Demander un devis
       </Button>

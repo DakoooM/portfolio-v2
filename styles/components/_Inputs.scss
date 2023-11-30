@@ -2,13 +2,13 @@ $input_border_color: #c8c8c8;
 
 .InputWithLabel {
   position: relative;
-  width: fit-content;
+  width: 100%;
 
   .input {
     appearance: none;
     -webkit-appearance: none;
     user-select: none;
-    min-width: 200px;
+    width: 100%;
     font-weight: 500;
     height: 40px;
     font-size: 16px;
@@ -33,6 +33,14 @@ $input_border_color: #c8c8c8;
       color: #2980b9;
     }
 
+    // Style for autocomplete background
+    &:-webkit-autofill, &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 2px $input_border_color, 0 0 0 30px white inset !important;
+
+      &:is(:focus) {
+        -webkit-box-shadow: 0 0 0 2px #2980b9, 0 0 0 30px white inset !important;
+      }
+    }
   }
 
   .label {
@@ -53,7 +61,7 @@ $input_border_color: #c8c8c8;
 
 .TextAreaWithLabel {
   position: relative;
-  width: fit-content;
+  width: 100%;
 
   .area {
     appearance: none;
@@ -61,7 +69,7 @@ $input_border_color: #c8c8c8;
     font-family: inherit;
     font-weight: 500;
     user-select: none;
-    min-width: 200px;
+    width: 100%;
     height: auto;
     resize: none;
     font-size: 16px;
@@ -72,7 +80,7 @@ $input_border_color: #c8c8c8;
     border-radius: 10px;
     text-overflow: ellipsis;
     transition: box-shadow 100ms ease-in-out;
-    @include scrollbar($display: false);
+    // @include scrollbar($display: false);
 
     &::placeholder {
       color: rgba(0, 0, 0, 0.3);

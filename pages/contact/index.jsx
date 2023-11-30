@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 import Heading from "@/components/Heading";
 import HtmlHeader from "@/components/HtmlHeader";
 import { InputWithLabel, TextAreaWithLabel } from "@/components/Inputs";
@@ -21,7 +21,7 @@ function ContactPage() {
     console.log("data", d);
     setLoading(true);
 
-    toast(`Bravo ${d.firstname} ${d.lastname}! Vous avez envoyée un email a Giovani, il vous répondera dans 7 jour(s) ouvrés maximum!`, 15, "success");
+    // toast(`Bravo ${d.firstname} ${d.lastname}! Vous avez envoyée un email a Giovani, il vous répondera dans 7 jour(s) ouvrés maximum!`, 15, "success");
 
     try {
       const { data } = await axios.post("/api/v1/send-email", d);
@@ -30,7 +30,7 @@ function ContactPage() {
       setLoading(false);
     } catch(err) {
       console.error("err", err);
-      toast(`${d.firstname} ${d.lastname}, Une erreur s'est produite!\n${err?.request?.statusText ?? ""}`, 5, "danger");
+      toast(`${d.firstname} ${d.lastname}, Une erreur s'est produite! → ${err?.request?.statusText ?? ""}`, 5, "danger");
       setLoading(false);
     }
   }

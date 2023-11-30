@@ -11,7 +11,7 @@
   min-width: fit-content;
   padding: 40px 0;
   border-radius: 10px;
-  box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.150);
   @include flex(flex, center, center, column, nowrap, 10px, 20px);
   transition: box-shadow 200ms ease;
 
@@ -20,7 +20,7 @@
   }
 
   &:hover {
-    box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.3);
   }
 
   .title {
@@ -41,6 +41,7 @@
 
   .from {
     font-size: 20px;
+    user-select: none;
     color: #949494;
     margin-top: 20px;
   }
@@ -58,10 +59,10 @@
 
   .sep {
     border: none;
-    height: 3px;
+    height: 2px;
     width: 90%;
-    background-color: #e2e2e2;
-    border-radius: 3px;
+    background-color: #f2f2f2;
+    border-radius: 2px;
   }
 
   .advantages {

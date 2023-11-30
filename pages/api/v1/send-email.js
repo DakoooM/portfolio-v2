@@ -4,8 +4,7 @@ import { ContactEmail } from "@/emails/ContactEmail";
 
 export default async function SendEmail(req, res) {
   const { method, body } = req;
-  const { firstname, lastname, email, phone, description } = body;
-  console.log(firstname, lastname, email, phone, description);
+  const { firstname, lastname } = body;
 
   switch (method) {
     case "POST":

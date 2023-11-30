@@ -1,6 +1,7 @@
 .ContactPage {
   position: relative;
   width: 100%;
+  max-width: 600px;
   padding: 100px 0;
   @include flex(flex, center, center, column, wrap, 20px, 10px);
 

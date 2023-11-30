@@ -33,7 +33,7 @@ const CardSkillIconSize = 40;
 export const CardSkillsItems = [
   {
     title: "Gestion de projets web",
-    description: "Site vitrine, corporate, évènementiel, e-commerce, intranet, application mobile.",
+    description: "Site vitrine, évènementiel, e-commerce, intranet.",
     icon: (size, className) => <IoBulbOutline size={CardSkillIconSize || size} className={className}/>,
   },
   {

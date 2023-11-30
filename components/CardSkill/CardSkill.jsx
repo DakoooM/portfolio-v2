@@ -1,4 +1,4 @@
-import Heading from "./Heading";
+import Heading from "../Heading";
 
 export const CardSkill = ({
   title = "Aucun",

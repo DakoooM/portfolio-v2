@@ -2,6 +2,7 @@ import Heading from "@/components/Heading";
 import Link from "next/link";
 import { FaCopyright } from "react-icons/fa";
 import { FooterSectionLinks, FooterSocials } from "./config";
+import SimpleBlob from "@/components/simpleBlob";
 
 function FooterSection({ title = "Home", items = [] }) {
   return (
@@ -21,7 +22,9 @@ function FooterSection({ title = "Home", items = [] }) {
 
 function Footer() {
   return (
-    <div className="Footer">
+    <footer className="Footer">
+      <SimpleBlob size={50} className="simpleBlob"/>
+
       <div className="FooterContainer">
         <div className="Container">
           <div className="TopFooter">
@@ -29,7 +32,7 @@ function Footer() {
               <span className="name">Gcassinis</span>
             </div>
 
-            <p className="desc">Giovani Cassinis Développeur web freelance depuis 2023.</p>
+            <p className="desc">Giovani Cassinis Développeur web freelance Siret: 98132827100011</p>
 
             <div className="socials">
               {
@@ -71,7 +74,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-    </div>
+    </footer>
   )
 }
 

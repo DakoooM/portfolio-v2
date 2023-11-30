@@ -11,7 +11,7 @@
     background-position-x: left;
     background-position-y: center;
     background-repeat: no-repeat;
-    @include flex(flex, center, center, row, wrap, 20px, 40px);
+    @include flex(flex, center, center, column, wrap, 20px, 40px);
     align-content: center;
     box-shadow: inset 2px 10px 10px 0 rgba(0 0 0 / 5%);
     padding: 80px 20px 0px 20px;
@@ -29,27 +29,11 @@
 
     .TitlePresent {
       color: white;
-      // text-shadow: 0 0 20px #ffffff5a;
+      font-size: min(max(20px, 6vw), 40px);
 
       .titles {
-        // text-shadow: 0 0 20px #0a89ce3f;
+        text-shadow: 0 0 30px #04a7ff26;
         @include TextGradient($rotate: 100, $colors_one: #0a55ce, $color_two: #0aaace);
-
-        animation: bouger 1s infinite;
-
-        @keyframes bouger {
-          from {
-            background-size: 100%;
-          }
-
-          50% {
-            background-size: 150%;
-          }
-
-          to {
-            background-size: 100%;
-          }
-        }
       }
     }
 
@@ -59,15 +43,9 @@
       z-index: 2;
       object-fit: cover;
       object-position: top;
-      width: 170px;
-      height: 170px;
+      width: 200px;
+      height: 200px;
       box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
-      transition: transform 300ms ease, box-shadow 300ms ease;
-
-      &:hover {
-        transform: scale(1.05) rotate(-5deg) translateX(-15px);
-        box-shadow: 2px 2px 5px 0 rgba(0 0 0 / 20%);
-      }
     }
 
     .boxPresent {
@@ -75,12 +53,10 @@
       @include flex(flex, flex-start, flex-start, column, wrap, 0, 10px);
 
       .pDesc {
-        // font-style: italic;
-        font-size: 18px;
-        // word-spacing: 3px;
-        // line-height: 18px;
+        font-size: min(max(12px, 4vw), 18px);
         max-width: 700px;
-        color: #d6dfee;
+        font-weight: 500;
+        color: #e7e8eb;
       }
 
       .buttonsPresent {
@@ -123,7 +99,7 @@
     position: relative;
     width: 100%;
     padding: 50px;
-    min-height: 600px;
+    min-height: 1000px;
 
     @include flex(flex, center, center, column, nowrap, 0, 10px);
 
@@ -151,23 +127,46 @@
     .comp_ctn {
       margin-top: 20px;
       padding-top: 50px;
-      height: 500px;
-      @include flex(flex, center, center, row, nowrap, 10px, 20px);
+      width: 100%;
+      @include flex(flex, center, center, row, wrap, 10px, 20px);
+
+      @include for-size(desktop-up) {
+        flex-direction: column;
+        row-gap: 100px;
+      }
 
       .comp_left {
+        flex: 1;
+        padding: 0 20px;
+        max-width: 600px;
 
+        @include for-size(desktop-up) {
+          max-width: 100%;
+          width: 100%;
+        }
       }
 
       .HorizontalSeparator {
         border: none;
         width: 3px;
-        height: 100%;
-        flex: 1;
-        background-color: red;
+        height: 450px;
+        border-radius: 3px;
+        background-color: #f2f2f2;
+
+        @include for-size(desktop-up) {
+          display: none;
+        }
       }
 
       .comp_right {
+        flex: 1;
+        padding: 0 20px;
+        max-width: 600px;
 
+        @include for-size(desktop-up) {
+          max-width: 100%;
+          width: 100%;
+        }
       }
     }
   }

@@ -1,4 +1,4 @@
-import Button from '@/components/Button';
+import Button from '@/components/Button/Button';
 import Heading from '@/components/Heading';
 import HtmlHeader from '@/components/HtmlHeader';
 import React from 'react'
