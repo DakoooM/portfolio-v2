@@ -1,0 +1,114 @@
+$input_border_color: #c8c8c8;
+
+.InputWithLabel {
+  position: relative;
+  width: 100%;
+
+  .input {
+    appearance: none;
+    -webkit-appearance: none;
+    user-select: none;
+    width: 100%;
+    font-weight: 500;
+    height: 40px;
+    font-size: 16px;
+    text-indent: 10px;
+    outline: none;
+    box-shadow: 0 0 0 2px $input_border_color;
+    border: none;
+    border-radius: 10px;
+    text-overflow: ellipsis;
+    transition: box-shadow 100ms ease-in-out;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px #2980b9;
+    }
+    
+    &:focus + label {
+      color: #2980b9;
+    }
+
+    // Style for autocomplete background
+    &:-webkit-autofill, &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 2px $input_border_color, 0 0 0 30px white inset !important;
+
+      &:is(:focus) {
+        -webkit-box-shadow: 0 0 0 2px #2980b9, 0 0 0 30px white inset !important;
+      }
+    }
+  }
+
+  .label {
+    position: absolute;
+    font-weight: bold;
+    display: block;
+    user-select: none;
+    top: 0;
+    left: 10px;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    background-color: #fff;
+    font-size: 16px;
+    transition: color 100ms ease-in-out;
+    will-change: color;
+  }
+}
+
+.TextAreaWithLabel {
+  position: relative;
+  width: 100%;
+
+  .area {
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: inherit;
+    font-weight: 500;
+    user-select: none;
+    width: 100%;
+    height: auto;
+    resize: none;
+    font-size: 16px;
+    padding: 20px;
+    outline: none;
+    box-shadow: 0 0 0 2px $input_border_color;
+    border: none;
+    border-radius: 10px;
+    text-overflow: ellipsis;
+    transition: box-shadow 100ms ease-in-out;
+    // @include scrollbar($display: false);
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px #2980b9;
+    }
+    
+    &:focus + label {
+      color: #2980b9;
+    }
+  }
+
+  .label {
+    position: absolute;
+    font-weight: bold;
+    font-family: inherit;
+    display: block;
+    user-select: none;
+    top: 0;
+    left: 10px;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    background-color: #fff;
+    font-size: 16px;
+    transition: color 100ms ease-in-out;
+    will-change: color;
+  }
+}

@@ -1,0 +1,121 @@
+.CardAdvantagesContainer {
+  width: 100%;
+  margin-top: 100px;
+  @include flex(flex, center, center, row, wrap, 50px, 50px);
+
+}
+
+.CardAdvantage {
+  width: 100%;
+  max-width: 400px;
+  min-width: fit-content;
+  padding: 40px 0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.150);
+  @include flex(flex, center, center, column, nowrap, 10px, 20px);
+  transition: box-shadow 200ms ease;
+
+  @include for-size(tablet-landscape-up){
+    max-width: none;
+  }
+
+  &:hover {
+    box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .title {
+    position: relative;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+
+    @include text_line(
+      $orientation: center, 
+      $color: #0D52FF, 
+      $width: 50%, 
+      $time: 500ms, 
+      $height: 5px, 
+      $bottom: -20px
+    );
+  }
+
+  .from {
+    font-size: 20px;
+    user-select: none;
+    color: #949494;
+    margin-top: 20px;
+  }
+
+  .price {
+    font-size: 50px;
+    font-weight: bold;
+
+    .eur {
+      vertical-align: revert;
+      font-size: 30px;
+      font-weight: 500;
+    }
+  }
+
+  .sep {
+    border: none;
+    height: 2px;
+    width: 90%;
+    background-color: #f2f2f2;
+    border-radius: 2px;
+  }
+
+  .advantages {
+    @include flex(flex, center, center, column, nowrap, 0, 0);
+    width: 100%;
+    padding: 0 15px;
+
+    .adv {
+      @include flex(flex, space-between, center, row, nowrap, 10px, 0);
+      max-width: 100%;
+      width: 100%;
+
+      .text {
+        color: var(--color-text-base);
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        // word-break: break-all;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        padding: 5px 0;
+      }
+
+      .icon_verif {
+        display: block;
+        width: 15px;
+        height: 100%;
+
+        @include for-size(tablet-landscape-up){
+          display: none;
+        }
+        
+        .icon {
+          color: #2980b9;
+        }
+      }
+  
+      .icon_infos {
+        display: block;
+        width: 30px;
+        height: 100%;
+
+        .icon {
+          color: #9d9d9d;
+          cursor: pointer;
+
+          &:hover {
+            color: #6a6a6a;
+          }
+        }
+      }
+    }
+  }
+}

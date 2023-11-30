@@ -1,10 +1,11 @@
-import { NavItems } from "@/config";
+import { NavItems } from "@/global.config";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Pivot as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { toPascalCase } from "@/utils/strings.util";
 
 function NavbarItem({
   to = "/home",
@@ -27,7 +28,7 @@ function Navbar({ logo }) {
     <div className={toogleHamburger ? "Navbar responsive" : "Navbar"}>
       <div className="Left">
         <Link href="/home">
-          <Image src={logo} width={60} height={60} draggable={false} className="Logo" />
+          <Image src={logo} alt="Logo gcassinis" width={60} height={60} draggable={false} className="Logo" />
         </Link>
       </div>
 

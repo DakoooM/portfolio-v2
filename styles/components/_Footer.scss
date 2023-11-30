@@ -1,43 +1,156 @@
-.FooterTopbar {
-  @include flex(flex, center, center, row, wrap, 20px, 10px);
-  width: 100%;
-  min-height: 150px;
-  background: linear-gradient(0deg, #00000021, 30%, transparent);
-
-  .Logo {
-    height: 80px;
-    width: 80px;
-    user-select: none;
-  }
-
-  .socials {
-    @include flex(flex, center, center, row, nowrap, 10px, 10px);
-
-    .social {
-      border-radius: 50%;
-      @include flex(flex, center, center);
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-      border: 2px solid #16273A;
-      color: #16273A;
-      transition: background-color 400ms ease, transform 200ms ease, color 200ms ease;
-      will-change: transform, color;
-
-      &:hover {
-        color: white;
-        transform: scale(1.05);
-        background: #16273A;
-      }
-    }
-  }
-}
+$color_footer_grey: rgb(121, 121, 121);
 
 .Footer {
-  padding: 0 40px;
-  min-height: 300px;
-  @include flex(flex, space-between, center, row, wrap, 20px, 20px);
+  position: relative;
+  width: 100%;
+  box-shadow: 0px 0px 10px 1px rgba(0 0 0 / 10%);
+  padding: 50px 10px 70px 10px;
 
-  .Logo {
+  .simpleBlob {
+    content: "";
+    position: absolute;
+    left: 8.5vw;
+    top: 45px;
+    z-index: 0;
+    opacity: .5;
+  }
+  
+  .FooterContainer {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    @include flex(flex, space-between, center, row, wrap, 20px, 30px);
+    
+
+    .Container {
+      width: 100%;
+      @include flex(flex, space-between, flex-start, row, wrap, 10px, 30px);
+
+      .TopFooter {
+        @include flex(flex, flex-start, flex-start, column, nowrap, 20px, 20px);
+    
+        .project {
+          @include flex(flex, center, center, row, wrap, 10px, 0);
+    
+          .logo {
+            user-select: none;
+          }
+    
+          .name {
+            font-weight: 900;
+            font-size: 30px;
+            text-transform: lowercase;
+            user-select: none;
+            color: var(--color-text-base);
+          }
+        }
+    
+        .desc {
+          max-width: 210px;
+          color: $color_footer_grey;
+          font-weight: 500;
+          line-height: 24px;
+        }
+  
+        .socials {
+          @include flex(flex, center, center, row, wrap, 30px, 0);
+  
+          .social {
+  
+            .icon {
+              color: $color_footer_grey;
+              transition: color 200ms ease;
+              will-change: color;
+  
+              &:hover {
+                color: var(--color-text-base)
+              }
+            }
+          }
+        }
+      }
+    
+      .BottomFooter {
+        @include flex(flex, space-between, flex-start, row, wrap, 20px, 20px);
+        width:max-content;
+  
+        .group {
+          position: relative;
+          min-width: 150px;
+  
+          .title {
+            font-size: 20px;
+            font-weight: 700;
+            user-select: none;
+          }
+    
+          .group-list {
+            margin-top: 10px;
+            @include flex(flex, flex-start, flex-start, column, nowrap, 10px, 10px);
+          
+            .item {
+              color: $color_footer_grey;
+              font-weight: 500;
+              font-size: 17px;
+              width: 100%;
+  
+              &:hover {
+                color: var(--color-text-base);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .sep {
+      border: none;
+      width: 100%;
+      height: 3px;
+      background-color: #f5f5f5;
+    }
+
+    .copyright {
+      @include flex(flex, center, center, row, wrap, 40px, 20px);
+      width: 100%;
+
+      .text {
+        user-select: none;
+        color: $color_footer_grey;
+        font-size: 18px;
+
+        .icon {
+          font-size: 15px;
+        }
+      }
+
+      .list {
+        list-style-type: disc;
+        @include flex(flex, center, center, row, wrap, 20px, 20px);
+
+        @include for-size(tablet-landscape-up){
+          list-style-type: none;
+        }
+
+        .item {
+          user-select: none;
+          
+          .link {
+            font-weight: 500;
+            font-size: 18px;
+            color: $color_footer_grey;
+            
+            &:hover {
+              color: var(--color-text-base);
+            }
+          }
+
+          &::marker {
+            color: $color_footer_grey;
+          }
+        }
+      }
+
+    }
   }
 }

@@ -1,6 +1,6 @@
 .CardSkillContainer {
   margin-top: 20px;
-  border-top: 2px solid #eaeaea;
+  // border-top: 2px solid #eaeaea;
   padding-top: 50px;
   @include flex(flex, space-between, center, row, wrap, 20px, 70px);
   width: 80%;
@@ -46,9 +46,8 @@
   .cardRight {
 
     .cardTitle {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 3px;
+      font-size: 20px;
+      font-weight: 700;
       text-transform: uppercase;
       text-align: center;
     }

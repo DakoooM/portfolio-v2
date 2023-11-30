@@ -16,7 +16,7 @@
     width: $width;
     height: $height;
 
-    @if $display ==false {
+    @if $display == false {
       display: none;
     }
   }

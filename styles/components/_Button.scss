@@ -3,9 +3,19 @@
   text-align: center;
   user-select: none;
   text-decoration: none;
-
+  @include flex(flex, center, center, row, wrap, 10px, 10px);
+  
   @include for-size(mobile-m) {
-    width: 100%;
+    width: 90%;
+  }
+  
+  &:not(a) {
+    cursor: pointer;
+    background-color: #a4821a81;
+  }
+
+  &:is(a) {
+    color: white;
   }
 
   &.rounded {
@@ -26,7 +36,6 @@
   }
 
   &.contained {
-    will-change: filter;
     background: black;
     color: white;
     font-weight: 500;
@@ -43,8 +52,8 @@
     }
 
     &.warning {
-      background: #2980b9;
-      border: 2px #2980b9 solid;
+      background: #b97829;
+      border: 2px #b97829 solid;
     }
   
     &.primary {
@@ -120,10 +129,11 @@
     }
   }
 
-  &:disabled {
-    color: grey;
+  &[disabled]:disabled, &.disabled {
+    color: #8f8f8f;
     background: #707070;
     border: 2px #707070 solid;
+    pointer-events: none;
 
     &.outlined {
       background: transparent;

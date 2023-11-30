@@ -3,27 +3,24 @@ import { MainContainer } from "@/components/Container";
 import PageContainer from "@/components/PageContainer";
 import Logo from "@/public/logo-gc.png";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer/Footer";
 import { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import LoadingBar from "react-top-loading-bar";
+import dynamic from "next/dynamic";
+
+const ToastContainer = dynamic(() => import("@/components/ToastNotification/Container"), {
+  ssr: false
+});
 
 export default function App({ Component, pageProps }) {
   const { events } = useRouter();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    events.on("routeChangeStart", (event) => {
-      setProgress(30);
-    })
-
-    events.on("routeChangeError", () => {
-      setProgress(100);
-    })
-
-    events.on("routeChangeComplete", () => {
-      setProgress(100);
-    })
+    events.on("routeChangeStart", () => setProgress(30));
+    events.on("routeChangeError", () => setProgress(100));
+    events.on("routeChangeComplete", () => setProgress(100));
   }, [events]);
 
   return (
@@ -36,12 +33,14 @@ export default function App({ Component, pageProps }) {
         onLoaderFinished={() => setProgress(0)}
       />
 
+      <ToastContainer/>
+
       <PageContainer>
         <Navbar logo={Logo} />
         <MainContainer>
           <Component {...pageProps} />
         </MainContainer>
-        <Footer logo={Logo} />
+        <Footer />
       </PageContainer>
     </Fragment>
   )

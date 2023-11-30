@@ -75,6 +75,7 @@
     transform: scaleX(1);
     height: $height;
     bottom: $bottom;
+    border-radius: $height;
     left: 0;
     background-color: $color;
     @include TextOrientationLine($orientation);
