@@ -13,6 +13,11 @@ const ToastContainer = dynamic(() => import("@/components/ToastNotification/Cont
   ssr: false
 });
 
+const ScrollTop = dynamic(() => import("@/components/ScrollTop"), {
+  ssr: false
+});
+
+
 export default function App({ Component, pageProps }) {
   const { events } = useRouter();
   const [progress, setProgress] = useState(0);
@@ -25,6 +30,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Fragment>
+      <ToastContainer/>
+      <ScrollTop/>
+
       <LoadingBar
         color="#4589d7"
         waitingTime={700}
@@ -32,8 +40,6 @@ export default function App({ Component, pageProps }) {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-
-      <ToastContainer/>
 
       <PageContainer>
         <Navbar logo={Logo} />

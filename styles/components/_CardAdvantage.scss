@@ -1,6 +1,5 @@
 .CardAdvantagesContainer {
   width: 100%;
-  margin-top: 100px;
   @include flex(flex, center, center, row, wrap, 50px, 50px);
 
 }
@@ -51,8 +50,14 @@
     font-weight: bold;
 
     .eur {
-      vertical-align: revert;
+      vertical-align: top;
       font-size: 30px;
+      font-weight: 500;
+    }
+
+    .ttc {
+      vertical-align: top;
+      font-size: 15px;
       font-weight: 500;
     }
   }
