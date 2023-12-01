@@ -1,0 +1,18 @@
+.ScrollTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  cursor: pointer;
+  
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 300ms ease, visibility 300ms ease;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+}

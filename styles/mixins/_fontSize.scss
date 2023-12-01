@@ -1,0 +1,3 @@
+@mixin fontResponsive($min: 20px, $viewwidth: 6vw, $default: 40px) {
+  font-size: min(max($min, $viewwidth), $default);
+}

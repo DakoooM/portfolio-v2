@@ -40,6 +40,7 @@ export const CardAdvantage = ({
   children = undefined,
   price = 1299,
   advs = [],
+  ttc = true,
   onSubmit = () => undefined
 }) => {
   return (
@@ -48,7 +49,7 @@ export const CardAdvantage = ({
       <span className="from">A PARTIR DE</span>
 
       <span className="price">
-        {price.toString()}<sup className="eur">€</sup>
+        {price.toString()}<sup className="eur">€</sup><sup className="ttc">{ttc ? "TTC" : "HT"}</sup>
       </span>
 
       <hr className="sep" />
@@ -79,9 +80,9 @@ export const CardAdvantage = ({
   )
 }
 
-export const CardAdvantagesContainer = ({ children }) => {
+export const CardAdvantagesContainer = ({ mTop = 0, mBottom = 0, children = undefined }) => {
   return (
-    <div className="CardAdvantagesContainer">
+    <div className="CardAdvantagesContainer" style={{ marginTop: mTop, marginBottom: mBottom}}>
       {children}
     </div>
   )

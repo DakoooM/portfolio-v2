@@ -8,7 +8,7 @@ import Image from "next/image";
 import { CardSkillsItems } from "@/global.config";
 import { v4 as uuidv4 } from "uuid";
 import { CardAdvantage, CardAdvantagesContainer } from "@/components/CardAdvantages/CardAdvantages";
-import { CardsAdvantagesList } from "@/components/CardAdvantages/config";
+import { CardsAdvantagesList } from "@/global.config";
 import { SkillProgressContainer, SkillProgress } from "@/components/SkillProgress";
 import { devSkills } from "@/pages/home/home.config";
 import { AiOutlineSafetyCertificate, AiOutlineShoppingCart } from "react-icons/ai";
@@ -36,7 +36,7 @@ export default function Home() {
 
           <div className="buttonsPresent">
             <Button href="#competences" variant="outlined" style={{minHeight: 50}} leftIcon={<AiOutlineSafetyCertificate size={20}/>} rounded={10}>Découvrir mes compétences</Button>
-            <Button href="/portfolio" style={{minHeight: 50}} rounded={10} leftIcon={<AiOutlineShoppingCart size={20}/>}>Découvrir mes Tarifs</Button>
+            <Button href="/tarifs" style={{minHeight: 50}} rounded={10} leftIcon={<AiOutlineShoppingCart size={20}/>}>Découvrir mes Tarifs</Button>
           </div>
         </div>
       </Section>
@@ -113,11 +113,13 @@ export default function Home() {
         </p>
 
         <CardAdvantagesContainer>
-          {CardsAdvantagesList.map(item => (
-            <CardAdvantage price={item.price} advs={item.advs} key={uuidv4()}>
-              {item.label()}
-            </CardAdvantage>
-          ))}
+          {
+            CardsAdvantagesList.filter((_, k) => k >= 2).map(item => (
+              <CardAdvantage price={item.price} advs={item.advs} key={uuidv4()}>
+                {item.label()}
+              </CardAdvantage>
+            ))
+          }
         </CardAdvantagesContainer>
       </Section>
     </div>

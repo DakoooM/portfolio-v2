@@ -1,13 +1,16 @@
-/** {@import("Next.js").Response} */
-export default async function api(req, res) {
+import apiHomePage from "@/lib/api_home";
+
+export default async function home(req, res) {
   const { method } = req;
 
   switch (method) {
     case "GET":
-      res.status(200).send("Bienvenue sur la v1 de mon API !\nRoute disponible:\n\n/api/v1/ (actuel)\n/api/v1/send-email")
-  
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      const htmlPage = apiHomePage();
+      res.write(htmlPage);
+      res.end();
     default:
-      res.setHeader("Allow", ["POST"]);
+      res.setHeader("Allow", ["GET"]);
       res.status(405).end(`Method ${method} Not Allowed`);
   }
 }

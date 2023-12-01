@@ -7,6 +7,7 @@
 @import "./mixins/scrollbar";
 @import "./mixins/textline";
 @import "./mixins/textGradient";
+@import "./mixins/fontSize";
 
 // Components
 @import "./components/Spinner";
@@ -20,9 +21,12 @@
 @import "./components/CardAdvantage";
 @import "./components/Notification";
 @import "./components/SkillProgress";
+@import "./components/ScrollTop";
+@import "./components/Switch";
 
 // Pages
 @import "./pages/Homepage";
+@import "./pages/TarifsPage";
 @import "./pages/Contactpage";
 @import "./pages/LegalsPage";
 @import "./pages/TermsOfUsepage";
