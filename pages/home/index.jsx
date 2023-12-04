@@ -108,11 +108,11 @@ export default function Home() {
 
         <CardAdvantagesContainer>
           {
-            CardsAdvantagesList.filter((_, k) => k >= 2).map(item => (
+            CardsAdvantagesList.map((item, k) => k < 2 ? (
               <CardAdvantage price={item.price} advs={item.advs} key={uuidv4()}>
                 {item.label()}
               </CardAdvantage>
-            ))
+            ) : undefined)
           }
         </CardAdvantagesContainer>
       </Section>

@@ -45,6 +45,14 @@ function TarifsPage() {
           })
         }
       </CardAdvantagesContainer>
+
+      <p className="tarifsInfos">
+        Prix à titre informatif : Changement possible selon les demandes et les choix du client.<br/>
+        Estimation du temps de travail appuyé par un devis.<br/>
+        Maintenance annuelle (engagement 12 mois).<br/>
+        Droit d'auteur & propriété intellectuelle : Vous êtes à la fin du projet, propriétaire de l'ensemble des sources (fichiers) composant celui-ci.<br/>
+        Paiment possible en plusieurs fois.
+      </p>
     </div>
   )
 }

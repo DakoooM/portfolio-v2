@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  pageExtensions: ["pages/portfolio/config.jsx", "pages/home/home.config.jsx"],
 
   async rewrites() {
     return [

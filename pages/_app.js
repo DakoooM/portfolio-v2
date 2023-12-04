@@ -2,7 +2,7 @@ import "@/styles/index.scss";
 import { MainContainer } from "@/components/Container";
 import PageContainer from "@/components/PageContainer";
 import Logo from "@/public/logo-gc.png";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";

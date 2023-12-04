@@ -1,15 +1,16 @@
-import Button from '@/components/Button/Button';
-import Heading from '@/components/Heading';
-import HtmlHeader from '@/components/HtmlHeader';
-import React from 'react'
+import Button from "@/components/Button/Button";
+import Heading from "@/components/Heading";
+import HtmlHeader from "@/components/HtmlHeader";
+import Image from "next/image";
+import Assets404 from "@/public/404.gif";
 
 function NotFound() {
   return (
     <div className="NotFound">
       <HtmlHeader title="404 - Page non trouvée"/>
-      <Heading level={1} className="align">Erreur 404</Heading>
-      <Heading level={4} className="align">Page non trouvée</Heading>
-      <Button href="/home" rounded={5}>Revenir a l'acceuil</Button>
+      <Image src={Assets404} alt="Erreur 404 Giovani" className="image404" draggable={false}/>
+      <Heading level={1} className="align">Page non trouvée</Heading>
+      <Button href="/home" type="danger" rounded={5}>Revenir a l'acceuil</Button>
     </div>
   )
 }

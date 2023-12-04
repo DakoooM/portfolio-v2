@@ -3,13 +3,13 @@ import { IoInformationCircleOutline } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
 import Button from "../Button/Button";
 import { FaRegNewspaper } from "react-icons/fa6";
-import { FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
-export const CardAdvantageInfo = ({ desc, tooltip, uniqueId }) => {
+export const CardAdvantageInfo = ({ add, desc, tooltip, uniqueId }) => {
   return (
     <div className="adv">
       <div className="icon_verif">
-        <FaPlus className="icon" size={14} />
+        {add ? <FaPlus className="icon" size={14} /> : <FaMinus className="icon rmv" size={14}/>}
       </div>
 
       <p className="text">{desc}</p>
@@ -41,7 +41,7 @@ export const CardAdvantage = ({
   price = 1299,
   advs = [],
   ttc = true,
-  onSubmit = () => undefined
+  onSubmit = () => {},
 }) => {
   return (
     <article className="CardAdvantage">
@@ -58,6 +58,7 @@ export const CardAdvantage = ({
         {
           advs.map(item => (
             <CardAdvantageInfo
+              add={item.add}
               uniqueId={item.key}
               tooltip={item.tooltip}
               desc={item.desc}
