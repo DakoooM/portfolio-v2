@@ -23,6 +23,7 @@
     "react-email": "^1.9.5",
     "react-hook-form": "^7.48.2",
     "react-icons": "^4.11.0",
+    "react-indiana-drag-scroll": "^2.2.0",
     "react-leaflet": "^4.2.1",
     "react-tooltip": "^5.24.0",
     "react-top-loading-bar": "^2.3.1",

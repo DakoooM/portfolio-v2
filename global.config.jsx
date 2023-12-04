@@ -5,6 +5,7 @@ import { IoBulbOutline, IoMailUnreadOutline } from "react-icons/io5";
 import { FiEdit } from "react-icons/fi";
 
 export const TVA_Produits = 20;
+export const show_homePageLogo = false;
 
 const NavItemsIconsSize = 25;
 export const NavItems = [

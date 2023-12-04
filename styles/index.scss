@@ -15,3 +15,7 @@
   min-height: 100vh;
   @include flex(flex, center, center, column, nowrap);
 }
+
+body.ov-hidden {
+  overflow: hidden;
+}
