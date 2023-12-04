@@ -1,10 +1,10 @@
 "use client";
 
 import { v4 as uuid } from "uuid";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
-import useLocalStorage from "use-local-storage";
 import useProgress from "@/hooks/useProgress";
+import NotificationContext from "@/contexts/NotificationContext";
 
 export const ToastNotification = ({
   type = "success", /* success | danger | warning */
@@ -13,11 +13,10 @@ export const ToastNotification = ({
   id = undefined
 }) => {
   const { percent } = useProgress(time);
-  const [notifications, setNotification] = useLocalStorage("notifs", []);
+  const { notifications, setNotification } = useContext(NotificationContext);
 
   const onClose = (id) => {
     const findIndex = notifications.findIndex(i => i.id === id);
-    console.log("findIndex", findIndex);
     const newArray = notifications.slice(findIndex, findIndex - 1);
 
     setNotification(newArray);
@@ -48,11 +47,11 @@ export const ToastNotification = ({
 }
 
 export const useNotification = () => {
-  const [notifications, setNotification] = useLocalStorage("notifs", []);
+  const { addNotification } = useContext(NotificationContext);
   
   const push = useCallback((text = "None", time = 15, type = "success", id = uuid()) => {  
-    setNotification([...notifications, { text, time, type, id }]);
-  });
+    addNotification({ text, time, type, id });
+  }, []);
 
   return [
     push,

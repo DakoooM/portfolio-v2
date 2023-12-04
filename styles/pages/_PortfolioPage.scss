@@ -1,0 +1,29 @@
+.PortfolioPage {
+  position: relative;
+  width: 100%;
+  padding: 100px 20px;
+  @include flex(flex, center, center, column, nowrap, 0, 50px);
+
+  .pageTitle {
+    text-align: center;
+    @include fontResponsive($min: 20px, $viewwidth: 10vw, $default: 40px);
+  }
+  
+  .desc {
+    position: relative;
+    text-align: center;
+    @include fontResponsive($min: 13px, $viewwidth: 6vw, $default: 20px);
+    font-weight: 500;
+    color: #a3a3a3;
+    margin-top: 20px;
+        
+    @include text_line(
+      $orientation: center, 
+      $color: #0D52FF, 
+      $width: 10%, 
+      $time: 500ms, 
+      $height: 5px, 
+      $bottom: -20px
+    );
+  }
+}

@@ -5,7 +5,7 @@ import HtmlHeader from "@/components/HtmlHeader";
 import Section from "@/components/Section";
 import MaTete from "@/public/ma-tete.jpg";
 import Image from "next/image";
-import { CardSkillsItems } from "@/global.config";
+import { CardSkillsItems, show_homePageLogo } from "@/global.config";
 import { v4 as uuidv4 } from "uuid";
 import { CardAdvantage, CardAdvantagesContainer } from "@/components/CardAdvantages/CardAdvantages";
 import { CardsAdvantagesList } from "@/global.config";
@@ -22,7 +22,11 @@ export default function Home() {
       />
 
       <Section className="Presentation">
-        <Image src={MaTete} alt="tete giovani cassinis" height={300} draggable={false} className="logo-personnal" />
+        {
+          show_homePageLogo && (
+            <Image src={MaTete} alt="tete giovani cassinis" height={300} draggable={false} className="logo-personnal" />
+          )
+        }
 
         <div className="boxPresent">
           <Heading level={1} className="TitlePresent">
@@ -87,17 +91,7 @@ export default function Home() {
             <Heading level={4}>Domaines de compétences</Heading>
 
             <SkillProgressContainer>
-              {
-                devSkills.map(skill => (
-                  <SkillProgress
-                    lang={skill.lang}
-                    height={skill.heigt}
-                    info={skill.info}
-                    icon={skill.icon}
-                    colors={skill.colors}
-                  />
-                ))
-              }
+              {devSkills.map(skill => <SkillProgress key={skill.key} {...skill}/>)}
             </SkillProgressContainer>
           </div>
         </div>

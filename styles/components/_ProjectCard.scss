@@ -1,0 +1,232 @@
+.ProjectCardContainer {
+  @include flex(flex, center, center, row, wrap, 40px, 40px);
+}
+
+.ProjectCard {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  cursor: pointer;
+  @include flex(flex, center, center, column, nowrap, 0, 0);
+  user-select: none;
+
+  &:hover {
+
+    .minia, .ProjectContainer {
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+    }
+  }
+  
+  .minia {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+    transition: box-shadow 200ms ease;
+  }
+
+  .ProjectContainer {
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+    transition: box-shadow 200ms ease;
+    @include flex(flex, center, flex-start, column, nowrap, 0, 20px);
+    
+    .pTitle {
+      font-weight: 800;
+      font-size: 25px;
+    }
+
+    .pCat {
+      font-weight: 500;
+      font-size: 18px;
+      color: #a3a3a3;
+    }
+
+    .pDate {
+      width: 100%;
+      font-size: 15px;
+      text-align: end;
+      font-weight: 600;
+      color: var(--color-text-base);
+    }
+
+    .tags {
+      @include flex(flex, center, flex-start, row, wrap, 10px, 10px);
+
+      .tag {
+        min-height: 20px;
+        font-size: 13px;
+        color: white;
+        padding: 5px 7px;
+        border-radius: 10px;
+        background-color: #4589d7;
+        transition: background-color 200ms ease, transform 200ms ease;
+
+        &:hover {
+          background-color: #3574bc;
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+}
+
+.ProjectInfoContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  pointer-events: none;
+  @include flex(flex, space-between, center, row, nowrap);
+
+  &.show {
+    pointer-events: all;
+
+    .ProjectClose {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 200ms 400ms, visibility 200ms ease;
+    }
+
+    .ProjectInfo {
+      transform: translateX(0);
+    }
+  }
+
+  .ProjectClose {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms, visibility 200ms 200ms ease;
+
+    @include for-size(desktop-up) {
+      width: 0%;
+    }
+  }
+  
+  .ProjectInfo {
+    position: relative;
+    background-color: #ffffff;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+    width: 50%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  
+    @include for-size(desktop-up) {
+      width: 100%;
+    }
+  
+    // hide
+    transform: translateX(100%);
+    transition: transform 300ms 200ms ease;
+  
+    &.show {
+      transform: translateX(0);
+    }
+  
+    .topline {
+      @include flex(flex, space-between, center, row, wrap, 20px, 20px);
+      padding: 30px 20px;
+      background-color: #eaeaea;
+      border-bottom: #cbcbcb 2px solid;
+  
+      .projectName {
+        font-size: 26px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--color-text-base);
+      }
+    }
+  
+    .gallery {
+      position: relative;
+      @include flex(inline-flex, center, center, row, nowrap, 20px, 20px);
+      justify-content: flex-start;
+      width: 100%;
+      height: 400px;
+      padding: 30px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+
+      @include for-size(desktop-up) {
+        height: 300px;
+      }
+  
+      .image {
+        min-width: 600px;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        user-select: none;
+        margin-left: auto;
+        scroll-snap-type: x mandatory;
+      }
+  
+      .video {
+        min-width: 600px;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        user-select: none;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+        margin-left: auto;
+        scroll-snap-type: x mandatory;
+      }
+    }
+
+    .InfosContainer {
+      position: relative;
+      @include flex(flex, space-between, center, row, wrap, 0, 0);
+      width: 100%;
+      margin: 0 auto;
+      height: 40vh;
+      // background: red;
+      padding: 30px;
+
+      .iTitle {
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &.right {
+          display: block;
+          text-align: end;
+        }
+      }
+
+      .leftInfos {
+        width: 50%;
+        height: 100%;
+
+        .iDesc {
+          color: #797979;
+          margin-top: 5px;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 22px;
+        }
+      }
+
+      .rightInfos {
+        width: 50%;
+        height: 100%;
+      }
+    }
+  }
+}

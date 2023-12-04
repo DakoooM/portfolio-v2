@@ -1,10 +1,10 @@
 import { v4 as uuid } from "uuid";
 import { ToastNotification } from ".";
-import useLocalStorage from "use-local-storage";
+import { useContext } from "react";
+import NotificationContext from "@/contexts/NotificationContext";
 
 export default function ToastContainer() {
-  const [notifications] = useLocalStorage("notifs", []);
-  console.log("notifications", notifications);
+  const { notifications } = useContext(NotificationContext);
 
   if (notifications) {
     return <div className="NotificationsContainer">
