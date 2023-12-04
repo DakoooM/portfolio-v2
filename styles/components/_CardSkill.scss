@@ -44,18 +44,20 @@
   }
   
   .cardRight {
+    @include flex(flex, center, center, column, wrap, 5px, 5px);
 
     .cardTitle {
-      font-size: 20px;
-      font-weight: 700;
+      @include fontResponsive($min: 15px, $viewwidth: 6vw, $default: 18px);
+      font-weight: 600;
       text-transform: uppercase;
-      text-align: center;
+      text-align: left;
+      width: 100%;
     }
   
     .cardDesc {
-      font-size: 16px;
+      @include fontResponsive($min: 14px, $viewwidth: 5vw, $default: 18px);
       max-width: 300px;
-      text-align: center;
+      text-align: left;
       color: grey;
     }
   }

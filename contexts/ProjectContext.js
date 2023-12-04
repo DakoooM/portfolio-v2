@@ -7,6 +7,7 @@ const ProjectContext = createContext({
 
   data: {
     title: "",
+    website: "",
     category: "",
     maxTags: 4,
     tags: [],

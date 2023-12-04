@@ -5,7 +5,7 @@ function Button({
   _type = "button",
   href = undefined,
   bgColor = undefined,
-  variant = "contained",
+  variant = "contained", /* contained, outlined */
   type = "primary",
   children = undefined,
   label = undefined,

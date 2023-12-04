@@ -5,7 +5,7 @@
     }
   }
 
-  @else if $size ==tablet-portrait-up {
+  @else if $size == tablet-portrait-up {
     @media (max-width: 600px) {
       @content;
     }

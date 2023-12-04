@@ -22,8 +22,8 @@ export default function ProjectCard(data) {
         
         <div className="tags">
           {
-            data?.tags.filter((_, k) => k >= data.maxTags).map(tag => <span className="tag" key={`tag_${tag}`}>{tag}</span>)
-          }
+            data?.tags.map((tag, k) => k < (data?.maxTags || 3) ? <span className="tag" key={`tag_${tag}`}>{tag}</span> : undefined)
+          }...
         </div>
 
         <span className="pDate">Le {data.publishedAt}</span>
