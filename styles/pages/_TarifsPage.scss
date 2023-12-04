@@ -27,4 +27,13 @@
       $bottom: -20px
     );
   }
+
+  .tarifsInfos {
+    @include fontResponsive($min: 10px, $viewwidth: 6vw, $default: 14px);
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    color: #a3a3a3;
+    font-weight: 500;
+  }
 }
