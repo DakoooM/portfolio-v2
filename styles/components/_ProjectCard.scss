@@ -60,6 +60,7 @@
         min-height: 20px;
         font-size: 13px;
         color: white;
+        user-select: none;
         padding: 5px 7px;
         border-radius: 10px;
         background-color: #4589d7;
@@ -113,6 +114,18 @@
     }
   }
   
+
+
+
+
+
+
+
+
+
+
+
+  /* Project info card */
   .ProjectInfo {
     position: relative;
     background-color: #ffffff;
@@ -137,8 +150,9 @@
     .topline {
       @include flex(flex, space-between, center, row, wrap, 20px, 20px);
       padding: 30px 20px;
-      background-color: #eaeaea;
-      border-bottom: #cbcbcb 2px solid;
+      background-color: #f6f6f6;
+      border-bottom: #ececec 2px solid;
+      z-index: 20;
   
       .projectName {
         font-size: 26px;
@@ -147,14 +161,31 @@
         color: var(--color-text-base);
       }
     }
+
+    .assets {
+      @include flex(flex, space-between, center, row, wrap, 10px, 20px);
+      padding: 0 30px;
+      margin-top: 40px;
+
+      .projectAssets {
+        font-size: 22px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--color-text-base);
+      }
+
+      .download {
+
+      }
+    }
   
     .gallery {
       position: relative;
       @include flex(inline-flex, center, center, row, nowrap, 20px, 20px);
       justify-content: flex-start;
       width: 100%;
-      height: 400px;
-      padding: 30px;
+      height: 300px;
+      padding: 30px 50px;
       overflow-x: auto;
       overflow-y: hidden;
       cursor: grab;
@@ -163,22 +194,20 @@
         cursor: grabbing;
       }
 
-      @include for-size(desktop-up) {
-        height: 300px;
+      @include for-size(tablet-portrait-up) {
+        height: 200px;
       }
   
       .image {
-        min-width: 600px;
+        min-width: max-content;
         width: 100%;
         height: 100%;
         border-radius: 10px;
         user-select: none;
         margin-left: auto;
-        scroll-snap-type: x mandatory;
       }
   
       .video {
-        min-width: 600px;
         width: 100%;
         height: 100%;
         border-radius: 10px;
@@ -186,46 +215,121 @@
         object-fit: cover;
         aspect-ratio: 16 / 9;
         margin-left: auto;
-        scroll-snap-type: x mandatory;
+
+        &.grab {
+          pointer-events: none;
+        }
       }
     }
 
     .InfosContainer {
       position: relative;
-      @include flex(flex, space-between, center, row, wrap, 0, 0);
+      @include flex(flex, space-between, center, row, wrap, 0, 40px);
       width: 100%;
       margin: 0 auto;
       height: 40vh;
-      // background: red;
       padding: 30px;
+      z-index: 17;
+
+      @include for-size(tablet-portrait-up) {
+        flex-direction: column-reverse;
+        height: auto;
+      }
 
       .iTitle {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 600;
         text-transform: uppercase;
 
         &.right {
           display: block;
-          text-align: end;
+          margin-bottom: 10px;
         }
       }
 
       .leftInfos {
         width: 50%;
         height: 100%;
+        padding: 0 20px;
+
+        @include for-size(tablet-portrait-up) {
+          width: 100%;
+        }
 
         .iDesc {
           color: #797979;
-          margin-top: 5px;
+          margin-top: 10px;
           font-size: 14px;
           font-weight: 500;
           line-height: 22px;
+
+          ul {
+            list-style: disc;
+            margin-top: 5px;
+            
+            li {
+              padding: 2px;
+            }
+          }
         }
       }
 
       .rightInfos {
         width: 50%;
         height: 100%;
+        padding: 0 20px;
+
+        @include for-size(tablet-portrait-up) {
+          width: 100%;
+        }
+
+        .iList {
+          @include flex(flex, flex-start, flex-start, column, nowrap, 0, 10px);
+          margin-top: 10px;
+          
+          .iItem {
+            @include flex(flex, flex-start, flex-start, row, nowrap, 10px, 0);
+            
+            .iIcon {
+              color: #2980b9;
+              font-size: 18px;
+            }
+            
+            .text {
+              display: block;
+              font-size: 16px;
+              font-weight: 500;
+              color: #797979;
+
+              .cat {
+                color: var(--color-text-base);
+                font-weight: 600;
+              }
+            }
+          }
+        }
+
+        .tags {
+          margin-top: 20px;
+          @include flex(flex, flex-start, flex-start, row, wrap, 10px, 10px);
+    
+          .tag {
+            min-height: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            user-select: none;
+            cursor: pointer;
+            color: white;
+            padding: 5px 7px;
+            border-radius: 10px;
+            background: linear-gradient(#4589d7, #496f9b);
+            transition: transform 200ms ease;
+    
+            &:hover {
+              transform: translateY(-3px);
+            }
+          }
+        }
       }
     }
   }

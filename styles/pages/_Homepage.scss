@@ -4,7 +4,7 @@
   .Presentation {
     position: relative;
     width: 100%;
-    min-height: 980px;
+    height: calc(100vh - 80px);
     background-color: aliceblue;
     background-image: url("/bg_homepage.jpg");
     background-size: cover;
@@ -50,7 +50,7 @@
 
     .boxPresent {
       z-index: 3;
-      @include flex(flex, flex-start, flex-start, column, wrap, 0, 10px);
+      @include flex(flex, flex-start, flex-start, column, wrap, 0, 20px);
 
       .pDesc {
         font-size: min(max(12px, 4vw), 18px);
@@ -76,13 +76,13 @@
 
       .titleService {
         text-align: center;
-        font-size: 40px;
+        @include fontResponsive($min: 20px, $viewwidth: 6vw, $default: 40px);
         font-weight: 700;
       }
 
       .ServiceDesc {
         text-align: center;
-        font-size: 25px;
+        @include fontResponsive($min: 14px, $viewwidth: 5vw, $default: 25px);
         font-weight: 500;
         color: #a3a3a3;
 
@@ -105,13 +105,13 @@
 
     .titleComp {
       text-align: center;
-      font-size: 40px;
+      @include fontResponsive($min: 20px, $viewwidth: 6vw, $default: 40px);
       font-weight: 700;
     }
 
     .compDesc {
       text-align: center;
-      font-size: 25px;
+      @include fontResponsive($min: 14px, $viewwidth: 5vw, $default: 20px);
       font-weight: 500;
       color: #a3a3a3;
 
@@ -181,13 +181,13 @@
 
     .titleTarifs {
       text-align: center;
-      font-size: 40px;
+      @include fontResponsive($min: 20px, $viewwidth: 6vw, $default: 40px);
       font-weight: 700;
     }
-
+    
     .TarifsDesc {
       text-align: center;
-      font-size: 25px;
+      @include fontResponsive($min: 14px, $viewwidth: 5vw, $default: 20px);
       font-weight: 500;
       color: #a3a3a3;
       margin-bottom: 100px;

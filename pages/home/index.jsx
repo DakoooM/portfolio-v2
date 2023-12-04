@@ -39,8 +39,8 @@ export default function Home() {
           </p>
 
           <div className="buttonsPresent">
-            <Button href="#competences" variant="outlined" style={{minHeight: 50}} leftIcon={<AiOutlineSafetyCertificate size={20}/>} rounded={10}>Découvrir mes compétences</Button>
-            <Button href="/tarifs" style={{minHeight: 50}} rounded={10} leftIcon={<AiOutlineShoppingCart size={20}/>}>Découvrir mes Tarifs</Button>
+            <Button href="#competences" variant="outlined" style={{minHeight: 50}} leftIcon={<AiOutlineSafetyCertificate size={20}/>} rounded={10}>Mes compétences</Button>
+            <Button href="/tarifs" style={{minHeight: 50}} rounded={10} leftIcon={<AiOutlineShoppingCart size={20}/>}>Mes Tarifs</Button>
           </div>
         </div>
       </Section>

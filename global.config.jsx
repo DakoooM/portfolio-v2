@@ -1,8 +1,10 @@
-import { FaRegBuilding } from "react-icons/fa";
-import { HiMiniGlobeAmericas } from "react-icons/hi2";
+import { FaGoogle, FaRegBuilding } from "react-icons/fa";
+import { HiMiniGlobeAmericas, HiMiniWrench } from "react-icons/hi2";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoBulbOutline, IoMailUnreadOutline } from "react-icons/io5";
+import { IoBulbOutline, IoMailUnreadOutline, IoShieldCheckmarkOutline } from "react-icons/io5";
 import { FiEdit } from "react-icons/fi";
+import { HiRefresh } from "react-icons/hi";
+import { LuBrush } from "react-icons/lu";
 
 export const TVA_Produits = 20;
 export const show_homePageLogo = false;
@@ -31,7 +33,7 @@ export const NavItems = [
   },
 ];
 
-const CardSkillIconSize = 40;
+const CardSkillIconSize = 30;
 
 export const CardSkillsItems = [
   {
@@ -45,38 +47,39 @@ export const CardSkillsItems = [
     icon: (size, className) => <FiEdit size={CardSkillIconSize || size} className={className}/>,
   },
   {
-    title: "Intégration Web",
-    description: "Des intégrations HTML5 / CSS3 respectueuses des standards du Web.",
-    icon: (size, className) => <FiEdit size={CardSkillIconSize || size} className={className}/>,
+    title: "Développements Spécifiques",
+    description: "Des outils adaptés à votre coeur de métier, applications & solutions personnalisées.",
+    icon: (size, className) => <HiMiniWrench size={CardSkillIconSize || size} className={className}/>,
   },
   {
-    title: "Intégration Web",
-    description: "Des intégrations HTML5 / CSS3 respectueuses des standards du Web.",
-    icon: (size, className) => <FiEdit size={CardSkillIconSize || size} className={className}/>,
+    title: "Référencement Naturel",
+    description: "Affichage sémantique des informations, des pages propres pour un référencement optimal.",
+    icon: (size, className) => <FaGoogle size={CardSkillIconSize || size} className={className}/>,
   },
   {
-    title: "Intégration Web",
-    description: "Des intégrations HTML5 / CSS3 respectueuses des standards du Web.",
-    icon: (size, className) => <FiEdit size={CardSkillIconSize || size} className={className}/>,
+    title: "DYNAMISME DES PAGES",
+    description: "Des animations de contenu non intrusives pour embellir votre projet.",
+    icon: (size, className) => <HiRefresh size={CardSkillIconSize || size} className={className}/>,
   },
   {
-    title: "Intégration Web",
-    description: "Des intégrations HTML5 / CSS3 respectueuses des standards du Web.",
-    icon: (size, className) => <FiEdit size={CardSkillIconSize || size} className={className}/>,
+    title: "INTERFACE D'ADMINISTRATION",
+    description: "Outils spécifiques au bon fonctionnement de votre entreprise.",
+    icon: (size, className) => <IoShieldCheckmarkOutline size={CardSkillIconSize || size} className={className}/>,
   },
   {
-    title: "Intégration Web",
-    description: "Des intégrations HTML5 / CSS3 respectueuses des standards du Web.",
-    icon: (size, className) => <FiEdit size={CardSkillIconSize || size} className={className}/>,
+    title: "RESPONSIVE DESIGN",
+    description: "Compatible tous supports, tablette & application mobile.",
+    icon: (size, className) => <IoIosPhonePortrait size={CardSkillIconSize || size} className={className}/>,
   },
   {
-    title: "Intégration Web",
-    description: "Des intégrations HTML5 / CSS3 respectueuses des standards du Web.",
-    icon: (size, className) => <FiEdit size={CardSkillIconSize || size} className={className}/>,
+    title: "Conception & Intégration Design",
+    description: "Création d'une Maquette Web sur mesure, Logo templates Web.",
+    icon: (size, className) => <LuBrush size={CardSkillIconSize || size} className={className}/>,
   },
 ]
 
 import { Fragment } from "react";
+import { IoIosPhonePortrait } from "react-icons/io";
 
 export const CardsAdvantagesList = [
   {

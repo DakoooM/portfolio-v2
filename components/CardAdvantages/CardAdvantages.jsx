@@ -18,7 +18,7 @@ export const CardAdvantageInfo = ({ desc, tooltip, uniqueId }) => {
         <IoInformationCircleOutline
           className="icon"
           data-tooltip-id={uniqueId}
-          size={30}
+          size={25}
         />
       </div>
 

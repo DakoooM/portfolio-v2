@@ -24,6 +24,14 @@
 
   &:focus {
     outline: 4px solid rgba(0, 0, 0, 0.5);
+
+    &.primary {
+      outline: 4px solid rgba(41, 127, 185, 0.5);
+    }
+
+    &.success {
+      outline: 4px solid rgba(22, 160, 132, 0.5);
+    }
   }
 
   &.disabled {

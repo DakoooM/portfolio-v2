@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
   const { events } = useRouter();
   const [ progress, setProgress ] = useState(0);
   const [ showProjectInfo, setShowProjectInfo ] = useState(false);
-  const [ ProjectData, setProjectData ] = useState(false);
+  const [ ProjectData, setProjectData ] = useState(undefined);
   const [ notifications, setNotification ] = useState([]);
 
   useEffect(() => {

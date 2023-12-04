@@ -24,7 +24,8 @@
 
   .title {
     position: relative;
-    font-size: 25px;
+    @include fontResponsive($min: 18px, $viewwidth: 7vw, $default: 25px);
+    // font-size: 25px;
     font-weight: 600;
     text-align: center;
 
@@ -46,18 +47,18 @@
   }
 
   .price {
-    font-size: 50px;
+    @include fontResponsive($min: 22px, $viewwidth: 8vw, $default: 50px);
     font-weight: bold;
 
     .eur {
       vertical-align: top;
-      font-size: 30px;
+      @include fontResponsive($min: 15px, $viewwidth: 7vw, $default: 30px);
       font-weight: 500;
     }
 
     .ttc {
       vertical-align: top;
-      font-size: 15px;
+      @include fontResponsive($min: 12px, $viewwidth: 6vw, $default: 15px);
       font-weight: 500;
     }
   }
@@ -82,9 +83,10 @@
 
       .text {
         color: var(--color-text-base);
-        font-size: 16px;
+        @include fontResponsive($min: 10px, $viewwidth: 3vw, $default: 16px);
+        // font-size: 16px;
         font-weight: 500;
-        text-align: center;
+        text-align: left;
         // word-break: break-all;
         display: -webkit-box;
         -webkit-line-clamp: 2;
