@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 import { CardAdvantage, CardAdvantagesContainer } from "@/components/CardAdvantages/CardAdvantages";
 import { CardsAdvantagesList } from "@/global.config";
 import { SkillProgressContainer, SkillProgress } from "@/components/SkillProgress";
-import { devSkills } from "@/pages/home/home.config";
+import { devSkills } from "@/pages/home.config";
 import { AiOutlineSafetyCertificate, AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function Home() {
