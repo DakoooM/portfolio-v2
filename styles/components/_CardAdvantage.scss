@@ -9,6 +9,7 @@
   max-width: 400px;
   min-width: fit-content;
   padding: 40px 0;
+  background: var(--navbar-bg);
   border-radius: 10px;
   box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.150);
   @include flex(flex, center, center, column, nowrap, 10px, 20px);
@@ -23,9 +24,9 @@
   }
 
   .title {
+    color: var(--color-text-base);
     position: relative;
     @include fontResponsive($min: 18px, $viewwidth: 7vw, $default: 25px);
-    // font-size: 25px;
     font-weight: 600;
     text-align: center;
 
@@ -47,6 +48,7 @@
   }
 
   .price {
+    color: var(--color-text-base);
     @include fontResponsive($min: 22px, $viewwidth: 8vw, $default: 50px);
     font-weight: bold;
 
@@ -67,7 +69,6 @@
     border: none;
     height: 2px;
     width: 90%;
-    background-color: #f2f2f2;
     border-radius: 2px;
   }
 

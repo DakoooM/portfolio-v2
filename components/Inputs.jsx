@@ -12,7 +12,7 @@ export const InputWithLabel = ({
   onChange = () => undefined
 }) => {
   return (
-    <div className="InputWithLabel" style={{ maxWidth: maxWidth }}>
+    <div className="InputWithLabel" style={{ width: maxWidth }}>
       <input type={type} pattern={pattern} required={required} {...register(uniqueId)} name={uniqueId} id={uniqueId} placeholder={placeholder} onChange={e => onChange(e)} className="input"/>
       <label htmlFor={uniqueId} className="label">{label}</label>
     </div>
@@ -25,13 +25,14 @@ export const TextAreaWithLabel = ({
   register = () => undefined,
   required = false,
   maxWidth = "100%",
+  minLength = undefined,
   uniqueId = "area_id",
   placeholder = "Entrez l'informations",
   onChange = () => undefined
 }) => {
   return (
-    <div className="TextAreaWithLabel" style={{ maxWidth: maxWidth }}>
-      <textarea type={type} required={required} {...register(uniqueId)} name={uniqueId} rows={5} id={uniqueId} placeholder={placeholder} onChange={e => onChange(e)} className="area"/>
+    <div className="TextAreaWithLabel" style={{ width: maxWidth }}>
+      <textarea type={type} required={required} minLength={minLength} {...register(uniqueId)} name={uniqueId} rows={5} id={uniqueId} placeholder={placeholder} onChange={e => onChange(e)} className="area"/>
       <label htmlFor={uniqueId} className="label">{label}</label>
     </div>
   )

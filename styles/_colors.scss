@@ -1,3 +1,29 @@
 :root {
   --color-text-base: #16273A;
+  --navbar-bg: white;
+  --page-bg: white;
+  --separator: #f5f5f5;
+  --card-project-bg: white;
+  --switch-bg: #ccc;
+  --input-border-color: #eeeeee;
+  --img-logo-navbar: brightness(1);
+  --page-info-bg: rgba(255 255 255 / 50%);
+  --modal-scrollbar-color: rgba(0 0 0 / 50%);
+  --input-placeholder-color: rgba(0 0 0 / 30%);
+  --input-placeholder-color-focused: rgba(0 0 0 / 20%);
+}
+
+[data-theme="dark"] {
+  --color-text-base: #ececec;
+  --navbar-bg: #27292b;
+  --page-bg: #1b1c1d;
+  --separator: #202223;
+  --card-project-bg: #27292b;
+  --switch-bg: #27292b;
+  --input-border-color: #363636;
+  --img-logo-navbar: brightness(3.5);
+  --page-info-bg: #3636368c;
+  --modal-scrollbar-color: rgba(255 255 255 / 40%);
+  --input-placeholder-color: rgba(255 255 255 / 30%);
+  --input-placeholder-color-focused: rgba(255 255 255 / 20%);
 }

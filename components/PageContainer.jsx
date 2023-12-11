@@ -1,10 +1,6 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-
 function PageContainer({ children }) {
   return (
-    <div className={`PageContainer ${inter.className}`}>
+    <div className="PageContainer">
       {children}
     </div>
   )

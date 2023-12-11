@@ -21,8 +21,6 @@ function ContactPage() {
     console.log("data", d);
     setLoading(true);
 
-    // toast(`Bravo ${d.firstname} ${d.lastname}! Vous avez envoyée un email a Giovani, il vous répondera dans 7 jour(s) ouvrés maximum!`, 15, "success");
-
     try {
       const { data } = await axios.post("/api/v1/send-email", d);
       console.info("data", data);
@@ -43,16 +41,16 @@ function ContactPage() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="formulaire" autoComplete="on">
         <div className="row-group">
-          <InputWithLabel label="Prénom *" required register={register} uniqueId="firstname" placeholder="John"/>
-          <InputWithLabel label="Nom de Famille" register={register} uniqueId="lastname" placeholder="Doe"/>
+          <InputWithLabel maxWidth="90%" label="Prénom *" required register={register} uniqueId="firstname" placeholder="John"/>
+          <InputWithLabel maxWidth="90%" label="Nom de Famille" register={register} uniqueId="lastname" placeholder="Doe"/>
         </div>
 
         <div className="row-group">
-          <InputWithLabel type="email" label="Adresse mail *" register={register} required uniqueId="email" placeholder="john.doe@gmail.com"/>
-          <InputWithLabel type="tel" pattern="[0-6]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" label="Téléphone *" register={register} required uniqueId="phone" placeholder="06 58 55 25 38"/>
+          <InputWithLabel maxWidth="90%" type="email" label="Adresse mail *" register={register} required uniqueId="email" placeholder="john.doe@gmail.com"/>
+          <InputWithLabel maxWidth="90%" type="tel" pattern="[0-6]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" label="Téléphone *" register={register} required uniqueId="phone" placeholder="06 58 55 25 38"/>
         </div>
 
-        <TextAreaWithLabel uniqueId="description" placeholder="Description de 100 caractères minimum" required register={register} label="Votre demande *"/>
+        <TextAreaWithLabel maxWidth="90%" uniqueId="description" placeholder="Description de 100 caractères minimum" required register={register} label="Votre demande *"/>
 
         <Button _type="submit" isLoading={isLoading} disabled={isLoading} rounded={15} style={{ fontWeight: "bold", fontSize: 17 }} leftIcon={<IoMailUnreadOutline size={25}/>}>Envoyer la demande</Button>
       </form>

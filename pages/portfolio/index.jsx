@@ -2,7 +2,7 @@ import Heading from "@/components/Heading";
 import HtmlHeader from "@/components/HtmlHeader";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectCardContainer from "@/components/ProjectCard/Container";
-import { ProjectList } from "./config";
+import { ProjectList } from "@/global.config";
 
 function PortfolioPage() {
   return (

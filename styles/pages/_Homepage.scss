@@ -151,7 +151,6 @@
         width: 3px;
         height: 450px;
         border-radius: 3px;
-        background-color: #f2f2f2;
 
         @include for-size(desktop-up) {
           display: none;

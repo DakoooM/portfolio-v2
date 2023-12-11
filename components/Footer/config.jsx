@@ -1,9 +1,9 @@
-import { FaDiscord } from "react-icons/fa";
+// import { FaDiscord } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa6";
 
 export const FooterSectionLinks = {
   "Raccourcis": [
-    {label: "Acceuil", link: "/home"},
+    {label: "Acceuil", link: "/"},
     {label: "Mes Projets", link: "/portfolio"},
     {label: "Mes Tarifs", link: "/tarifs"},
     {label: "Contact", link: "/contact"},
@@ -32,9 +32,9 @@ export const FooterSocials = [
     link: "https://www.linkedin.com/in/gcassinis/", 
     icon: (size = sIcons, cls = "icon") => <FaLinkedin size={size} className={cls} />
   },
-  {
+  /* {
     title: "Rejoindre ma communauté sur Discord", 
     link: "https://discord.gg/bJeePHsnJm", 
     icon: (size = sIcons, cls = "icon") => <FaDiscord size={size} className={cls} />
-  },
+  }, */
 ]

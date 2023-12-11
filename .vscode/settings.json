@@ -1,0 +1,11 @@
+{
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.experimental.configFile": null,
+  "tailwindCSS.includeLanguages": {
+      "javascript": "javascript",
+      "html": "HTML"
+  },
+  "editor.quickSuggestions": {
+      "strings": true
+  }
+}
