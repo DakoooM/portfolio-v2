@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function NavbarItem({
-  to = "/home",
+  to = "/",
   label = undefined,
   children = undefined
 }) {

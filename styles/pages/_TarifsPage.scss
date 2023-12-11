@@ -29,9 +29,10 @@
   }
 
   .tarifsInfos {
-    @include fontResponsive($min: 10px, $viewwidth: 6vw, $default: 14px);
+    @include fontResponsive($min: 10px, $viewwidth: 2vw, $default: 14px);
     width: 100%;
     max-width: 1200px;
+    margin-bottom: 50px;
     text-align: center;
     color: #a3a3a3;
     font-weight: 500;

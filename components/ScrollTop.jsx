@@ -1,6 +1,6 @@
 import { BiChevronUp } from "react-icons/bi";
 import Button from "./Button/Button";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 function ScrollTop() {
   const [show, setShow] = useState(false);
@@ -33,4 +33,4 @@ function ScrollTop() {
   )
 }
 
-export default ScrollTop;
+export default memo(ScrollTop);

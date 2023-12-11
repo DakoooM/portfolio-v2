@@ -31,6 +31,7 @@
     padding: 20px;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+    background: var(--card-project-bg);
     transition: box-shadow 200ms ease;
     @include flex(flex, center, flex-start, column, nowrap, 0, 20px);
     
@@ -104,7 +105,7 @@
     width: 50%;
     height: 100%;
     backdrop-filter: blur(2px);
-    background-color: rgba(255, 255, 255, 0.5);
+    background: var(--page-info-bg);
     opacity: 0;
     visibility: hidden;
     transition: opacity 200ms, visibility 200ms 200ms ease;
@@ -128,7 +129,7 @@
   /* Project info card */
   .ProjectInfo {
     position: relative;
-    background-color: #ffffff;
+    background-color: var(--page-bg);
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
     width: 50%;
     height: 100%;
@@ -150,8 +151,8 @@
     .topline {
       @include flex(flex, space-between, center, row, wrap, 20px, 20px);
       padding: 30px 20px;
-      background-color: #f6f6f6;
-      border-bottom: #ececec 2px solid;
+      background-color: var(--page-bg);
+      border-bottom: var(--separator) 2px solid;
       z-index: 20;
   
       .projectName {
@@ -240,6 +241,7 @@
         font-size: 20px;
         font-weight: 600;
         text-transform: uppercase;
+        color: var(--color-text-base);
 
         &.right {
           display: block;

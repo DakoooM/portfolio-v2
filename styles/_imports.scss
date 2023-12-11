@@ -9,8 +9,13 @@
 @import "./mixins/textGradient";
 @import "./mixins/fontSize";
 
+// Loaders
+@import "./fontsLoader";
+
 // Components
 @import "./components/Spinner";
+@import "./components/Devis";
+@import "./components/Modal";
 @import "./components/Navbar";
 @import "./components/Footer";
 @import "./components/Heading";

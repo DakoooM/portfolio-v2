@@ -5,7 +5,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: #FFFFFF;
+  background: var(--page-bg);
   
   @include flex($direction: column);
 }
@@ -16,6 +16,19 @@
   @include flex(flex, center, center, column, nowrap);
 }
 
-body.ov-hidden {
-  overflow: hidden;
+body {
+  font-family: "Inter", sans-serif;
+
+  &.ov-hidden {
+    overflow: hidden;
+  }
+}
+
+.ThemeSwitcher {
+  color: var(--color-text-base);
+  cursor: pointer;
+
+  .modeIcon {
+    font-size: 25px;
+  }
 }

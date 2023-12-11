@@ -5,6 +5,7 @@ import { Pivot as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import NavbarItem from "./Item";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 function Navbar({ logo }) {
   const [toogleHamburger, setToogleHamburger] = useState(false);
@@ -12,7 +13,7 @@ function Navbar({ logo }) {
   return (
     <div className={toogleHamburger ? "Navbar responsive" : "Navbar"}>
       <div className="Left">
-        <Link href="/home">
+        <Link href="/">
           <Image src={logo} alt="Logo gcassinis" width={60} height={60} draggable={false} className="Logo" />
         </Link>
       </div>
@@ -29,6 +30,8 @@ function Navbar({ logo }) {
             )
           })
         }
+        
+        <ThemeSwitcher/>
       </div>
 
       <Hamburger duration={0.5} toggled={toogleHamburger} toggle={setToogleHamburger} />

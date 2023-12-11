@@ -5,7 +5,7 @@ $navbarHeight: 80px;
   top: 0;
   left: 0;
   z-index: 999;
-  background-color: #fff;
+  background-color: var(--navbar-bg);
   width: 100%;
   height: $navbarHeight;
   padding: 0 40px;
@@ -33,7 +33,7 @@ $navbarHeight: 80px;
       width: 100%;
       height: 100%;
       z-index: 998;
-      background-color: #fffffffa;
+      background-color: var(--page-bg);
 
       .NavbarItem {
         font-size: 2ch;
@@ -51,6 +51,7 @@ $navbarHeight: 80px;
       user-select: none;
       z-index: 999;
       transition: transform 1s ease;
+      filter: var(--img-logo-navbar);
       
       &:hover {
         transform: rotate(360deg);
@@ -79,7 +80,7 @@ $navbarHeight: 80px;
     }
       
     .NavbarItem {
-      color: #16273A;
+      color: var(--color-text-base);
       text-decoration: none;
       font-family: "Roboto";
       font-weight: 500;
@@ -111,6 +112,8 @@ $navbarHeight: 80px;
   div.hamburger-react {
     display: none;
     z-index: 999;
+    color: var(--color-text-base);
+    transition: none;
 
     @include for-size(tablet-landscape-up) {
       display: block;

@@ -1,9 +1,9 @@
 import { v4 as uuid } from "uuid";
 import { ToastNotification } from ".";
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import NotificationContext from "@/contexts/NotificationContext";
 
-export default function ToastContainer() {
+function ToastContainer() {
   const { notifications } = useContext(NotificationContext);
 
   if (notifications) {
@@ -18,3 +18,5 @@ export default function ToastContainer() {
     </div>
   }
 }
+
+export default memo(ToastContainer);

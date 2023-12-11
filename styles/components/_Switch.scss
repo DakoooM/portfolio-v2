@@ -4,6 +4,7 @@
   .switch-label {
     font-weight: 500;
     text-align: center;
+    color: var(--color-text-base);
   }
 }
 
@@ -20,11 +21,7 @@
     height: 0;
 
     &:checked + .slider {
-      background-color: #2196F3;
-    }
-    
-    &:focus-within + .slider {
-      box-shadow: 0 0 0 4px #2195f381;
+      background: linear-gradient(90deg, #58a6ee, #007bff);
     }
     
     &:checked + .slider:before {
@@ -41,9 +38,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: 200ms;
-    transition: 200ms;
+    background-color: var(--switch-bg);
+    transition: background-color 200ms ease;
 
     &:before {
       position: absolute;
@@ -53,8 +49,7 @@
       left: 4px;
       bottom: 4px;
       background-color: white;
-      -webkit-transition: 200ms;
-      transition: 200ms;
+      transition: transform 200ms ease;
     }
 
     /* Rounded sliders */

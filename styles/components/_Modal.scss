@@ -1,0 +1,110 @@
+.ModalContainer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms ease opacity, 200ms ease visibility;
+
+  &.show {
+    transition: 200ms ease opacity, 200ms ease visibility;
+    pointer-events: all;
+    visibility: visible;
+    opacity: 1;
+
+    .Modal {
+      transform: translate(-50%, -50%) scale(1);
+      transition: 200ms 200ms ease transform;
+    }
+  }
+
+  .ModalCloser {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%) scale(.7);
+    width: 80%;
+    max-width: 700px;
+    height: 90%;
+    max-height: 500px;
+    background: var(--page-bg);
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.200);
+    transition: 200ms ease transform;
+    will-change: transform;
+    overflow: hidden;
+
+    @include flex(flex, flex-start, flex-start, column, nowrap);
+    
+    .ModalTop {
+      position: relative;
+      width: 100%;
+      min-height: 60px;
+      padding: 10px 20px;
+      @include flex(flex, space-between, center, row, wrap, 5px, 5px);
+      
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 95%;
+        height: 2px;
+        background-color: var(--separator);
+        transform: translateX(-50%);
+      }
+      
+      .ModalTitle {
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: var(--color-text-base);
+        @include fontResponsive($min: 17px, $viewwidth: 6vw, $default: 22px);
+      }
+      
+      .ModalClose {
+        cursor: pointer;
+        color: var(--color-text-base);
+        @include fontResponsive($min: 20px, $viewwidth: 6vw, $default: 30px);
+        transition: color 200ms ease;
+        will-change: color;
+      }
+    }
+    
+    .ModalWrapper {
+      flex: 1;
+      // padding: 20px;
+      display: flex;
+      width: 100%;
+      height: calc(100% - 60px);
+      
+      .ModalContent {
+        flex: 1;
+        padding: 30px 20px;
+        overflow: auto;
+
+        @include scrollbar(
+          $display: true,
+          $width: 8px,
+          $height: 5px,
+          $radius: 7px,
+          $color: var(--modal-scrollbar-color),
+          $active_color: none,
+          $active_size: 2px,
+          $bg: transparent
+        );
+      }
+    }
+  }
+}

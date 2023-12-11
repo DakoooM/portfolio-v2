@@ -1,0 +1,3 @@
+.DevisContainer {
+  @include flex(flex, center, center, column, wrap, 0, 30px);
+}

@@ -13,7 +13,7 @@ function TarifsPage() {
   const onChangePrices = (e) => {
     const { checked } = e?.target;
 
-    // 10 * 20 / 100
+    // 10 * 20 (pourcent) / 100
     // prendre le calcule au dessus et moins le prix du produit
     setShowHT(checked);
   }
@@ -32,13 +32,13 @@ function TarifsPage() {
 
       <Switch onChecked={onChangePrices} leftLabel="Voir les Prix HT"/>
 
-      <CardAdvantagesContainer mBottom={100}>
+      <CardAdvantagesContainer>
         {
           CardsAdvantagesList.map(item => {
             const calculTVA = (item.price - (item.price * TVA_Produits / 100)).toFixed(2);
 
             return (
-              <CardAdvantage ttc={!showHT} price={showHT ? calculTVA : item.price} advs={item.advs} key={uuidv4()}>
+              <CardAdvantage type={item.type} ttc={!showHT} price={showHT ? calculTVA : item.price} advs={item.advs} key={uuidv4()}>
                 {item.label()}
               </CardAdvantage>
             )

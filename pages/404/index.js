@@ -10,7 +10,7 @@ function NotFound() {
       <HtmlHeader title="404 - Page non trouvée"/>
       <Image src={Assets404} alt="Erreur 404 Giovani" className="image404" draggable={false}/>
       <Heading level={1} className="align">Page non trouvée</Heading>
-      <Button href="/home" type="danger" rounded={5}>Revenir a l'acceuil</Button>
+      <Button href="/" type="danger" rounded={5}>Revenir a l'acceuil</Button>
     </div>
   )
 }

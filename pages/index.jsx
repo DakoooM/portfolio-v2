@@ -109,11 +109,13 @@ export default function Home() {
         <CardAdvantagesContainer>
           {
             CardsAdvantagesList.map((item, k) => k < 2 ? (
-              <CardAdvantage price={item.price} advs={item.advs} key={uuidv4()}>
+              <CardAdvantage type={item.type} price={item.price} advs={item.advs} key={uuidv4()}>
                 {item.label()}
               </CardAdvantage>
             ) : undefined)
           }
+
+          <Button href="/tarifs" rounded={5}>Voir plus...</Button>
         </CardAdvantagesContainer>
       </Section>
     </div>

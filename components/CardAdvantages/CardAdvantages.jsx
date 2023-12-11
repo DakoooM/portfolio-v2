@@ -4,6 +4,9 @@ import { Tooltip } from "react-tooltip";
 import Button from "../Button/Button";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import ModalContext from "@/contexts/ModalContext";
+import { useContext } from "react";
+import { CardsAdvantagesModal } from "@/global.config";
 
 export const CardAdvantageInfo = ({ add, desc, tooltip, uniqueId }) => {
   return (
@@ -38,11 +41,29 @@ export const CardAdvantageInfo = ({ add, desc, tooltip, uniqueId }) => {
 
 export const CardAdvantage = ({
   children = undefined,
+  type = "standard",
   price = 1299,
   advs = [],
-  ttc = true,
-  onSubmit = () => {},
+  ttc = true
 }) => {
+  const { 
+    setShowModal,
+    setModalTitle, 
+    setModalContent
+  } = useContext(ModalContext);
+
+  const onSubmit = (event, type) => {
+    event?.preventDefault();
+
+    const info = CardsAdvantagesModal[type];
+
+    if (info) {
+      setModalTitle(info.title);
+      setModalContent(info.element);
+      setShowModal(true);
+    }
+  }
+
   return (
     <article className="CardAdvantage">
       <h2 className="title">{children}</h2>
@@ -74,7 +95,7 @@ export const CardAdvantage = ({
         leftIcon={<FaRegNewspaper size={20} />}
         rounded={10}
         style={{ width: "80%", fontWeight: "bold", fontSize: 15 }}
-        onClick={e => onSubmit(e)}>
+        onClick={e => onSubmit(e, type)}>
         Demander un devis
       </Button>
     </article>

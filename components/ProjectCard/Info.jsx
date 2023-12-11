@@ -1,12 +1,9 @@
 import { createPortal } from "react-dom";
 import Button from "@/components/Button/Button";
 import { IoIosClose } from "react-icons/io";
-import { useContext, useEffect, useState } from "react";
-import { Inter } from "next/font/google";
+import { memo, useContext, useEffect, useState } from "react";
 import ProjectContext from "@/contexts/ProjectContext";
 import ScrollContainer from "react-indiana-drag-scroll";
-
-const inter = Inter({ subsets: ["latin"] });
 
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaExternalLinkAlt, FaMapPin } from "react-icons/fa";
@@ -48,7 +45,7 @@ function ProjectInfo() {
     <div className={`ProjectInfoContainer${show ? " show" : ""}`}>
       <div className="ProjectClose" onClick={() => setShow(false)}></div>
 
-      <div className={`ProjectInfo ${inter.className}`}>
+      <div className="ProjectInfo">
         <div className="topline">
           <span className="projectName">{data?.title}</span>
 
@@ -102,7 +99,9 @@ function ProjectInfo() {
               <li className="iItem">
                 <RiCalendarEventLine className="iIcon" />
 
-                <span className="text">Production: {data?.publishedAt}</span>
+                <span className="text">
+                  Production: <span className="cat">{data?.publishedAt}</span>
+                </span>
               </li>
 
               <li className="iItem">
@@ -129,4 +128,4 @@ function ProjectInfo() {
   return createPortal(JSX, document.body);
 }
 
-export default ProjectInfo;
+export default memo(ProjectInfo);
