@@ -1,33 +1,32 @@
-import ProjectContext from "@/contexts/ProjectContext";
 import Heading from "../Heading";
-import { useContext } from "react";
+import Link from "next/link";
 
 export default function ProjectCard(data) {
-  const { setShow, setData } = useContext(ProjectContext);
-
-  const onShowProject = (data) => {
-    setData(data);
-    setShow(true);
-  }
-
   return (
-    <article className="ProjectCard" onClick={() => onShowProject(data)}>
-      <img src={data.minia} draggable={false} alt={`image de ${data.title}`} className="minia"/>
-
-      <div className="ProjectContainer">
-        <div>
-          <Heading level={3} className="pTitle">{data.title}</Heading>
-          <p className="pCat">{data.category}</p>
-        </div>
-        
-        <div className="tags">
-          {
-            data?.tags.map((tag, k) => k < (data?.maxTags || 3) ? <span className="tag" key={`tag_${tag}`}>{tag}</span> : undefined)
-          }...
+    <Link href={{
+      pathname: "/portfolio/[id]",
+      query: { id: data.path }
+    }} className="ProjectCardLink">
+      <article className="ProjectCard">
+        <div className="miniaContainer">
+          <img src={data.minia} onContextMenu={e => e.preventDefault()} draggable={false} alt={`image du Projet ${data.title} de Gcassinis`} className="minia" />
         </div>
 
-        <span className="pDate">Le {data.publishedAt}</span>
-      </div>
-    </article>
+        <div className="ProjectContainer">
+          <div>
+            <Heading level={3} className="pTitle">{data.title}</Heading>
+            <p className="pCat">{data.category}</p>
+          </div>
+
+          <div className="tags">
+            {
+              data?.tags.map((tag, k) => k < (data?.maxTags || 3) ? <span className="tag" key={`tag_${tag}`}>{tag}</span> : undefined)
+            }...
+          </div>
+
+          <span className="pDate">Le {data.publishedAt}</span>
+        </div>
+      </article>
+    </Link>
   )
 }

@@ -47,7 +47,7 @@
     @include flex(flex, center, center, column, wrap, 5px, 5px);
 
     .cardTitle {
-      @include fontResponsive($min: 15px, $viewwidth: 6vw, $default: 18px);
+      @include fontResponsive($min: 13px, $viewwidth: 4vw, $default: 18px);
       font-weight: 600;
       text-transform: uppercase;
       text-align: left;
@@ -55,7 +55,7 @@
     }
   
     .cardDesc {
-      @include fontResponsive($min: 14px, $viewwidth: 5vw, $default: 18px);
+      @include fontResponsive($min: 11px, $viewwidth: 4vw, $default: 18px);
       max-width: 300px;
       text-align: left;
       color: grey;

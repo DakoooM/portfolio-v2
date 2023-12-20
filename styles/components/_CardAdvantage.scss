@@ -32,7 +32,7 @@
 
     @include text_line(
       $orientation: center, 
-      $color: #0D52FF, 
+      $color: linear-gradient(90deg, #58a6ee, #007bff), 
       $width: 50%, 
       $time: 500ms, 
       $height: 5px, 
@@ -41,7 +41,8 @@
   }
 
   .from {
-    font-size: 20px;
+    @include fontResponsive($min: 15px, $viewwidth: 7vw, $default: 20px);
+    // font-size: 20px;
     user-select: none;
     color: #949494;
     margin-top: 20px;
