@@ -2,74 +2,96 @@
   @include flex(flex, center, center, row, wrap, 40px, 40px);
 }
 
-.ProjectCard {
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-  cursor: pointer;
-  @include flex(flex, center, center, column, nowrap, 0, 0);
-  user-select: none;
+.ProjectCardLink {
+  display: block;
+  text-decoration: none;
 
-  &:hover {
-
-    .minia, .ProjectContainer {
-      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-    }
-  }
+  .ProjectCard {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    cursor: pointer;
+    @include flex(flex, center, center, column, nowrap, 0, 0);
+    user-select: none;
   
-  .minia {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
-    transition: box-shadow 200ms ease;
-  }
+    &:hover {
+      .ProjectContainer {
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+      }
 
-  .ProjectContainer {
-    width: 100%;
-    height: 200px;
-    padding: 20px;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
-    background: var(--card-project-bg);
-    transition: box-shadow 200ms ease;
-    @include flex(flex, center, flex-start, column, nowrap, 0, 20px);
+      .miniaContainer {
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+
+        .minia {
+          transform: scale(1.05);
+          filter: brightness(110%);
+        }
+      }
+    }
     
-    .pTitle {
-      font-weight: 800;
-      font-size: 25px;
-    }
-
-    .pCat {
-      font-weight: 500;
-      font-size: 18px;
-      color: #a3a3a3;
-    }
-
-    .pDate {
+    .miniaContainer {
+      position: relative;
+      overflow: hidden;
       width: 100%;
-      font-size: 15px;
-      text-align: end;
-      font-weight: 600;
-      color: var(--color-text-base);
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+      transition: box-shadow 200ms ease;
+
+      .minia {
+        width: 100%;
+        object-fit: cover;
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+        transition: transform 200ms ease, filter 200ms ease;
+      }
     }
-
-    .tags {
-      @include flex(flex, center, flex-start, row, wrap, 10px, 10px);
-
-      .tag {
-        min-height: 20px;
-        font-size: 13px;
-        color: white;
-        user-select: none;
-        padding: 5px 7px;
-        border-radius: 10px;
-        background-color: #4589d7;
-        transition: background-color 200ms ease, transform 200ms ease;
-
-        &:hover {
-          background-color: #3574bc;
-          transform: translateY(-3px);
+  
+    .ProjectContainer {
+      width: 100%;
+      height: 200px;
+      padding: 20px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+      background: var(--card-project-bg);
+      transition: box-shadow 200ms ease;
+      @include flex(flex, center, flex-start, column, nowrap, 0, 20px);
+      
+      .pTitle {
+        font-weight: 800;
+        @include fontResponsive($min: 15px, $viewwidth: 6vw, $default: 25px);
+      }
+  
+      .pCat {
+        font-weight: 500;
+        @include fontResponsive($min: 10px, $viewwidth: 5vw, $default: 18px);
+        color: #a3a3a3;
+      }
+  
+      .pDate {
+        width: 100%;
+        font-size: 15px;
+        @include fontResponsive($min: 8px, $viewwidth: 5vw, $default: 15px);
+        text-align: end;
+        font-weight: 600;
+        color: var(--color-text-base);
+      }
+  
+      .tags {
+        @include flex(flex, center, flex-start, row, wrap, 10px, 10px);
+  
+        .tag {
+          min-height: 20px;
+          @include fontResponsive($min: 8px, $viewwidth: 5vw, $default: 13px);
+          color: white;
+          user-select: none;
+          padding: 5px 7px;
+          border-radius: 10px;
+          background-color: #4589d7;
+          transition: background-color 200ms ease, transform 200ms ease;
+  
+          &:hover {
+            background-color: #3574bc;
+            transform: translateY(-3px);
+          }
         }
       }
     }
@@ -83,22 +105,7 @@
   width: 100%;
   height: 100%;
   z-index: 999;
-  pointer-events: none;
   @include flex(flex, space-between, center, row, nowrap);
-
-  &.show {
-    pointer-events: all;
-
-    .ProjectClose {
-      opacity: 1;
-      visibility: visible;
-      transition: opacity 200ms 400ms, visibility 200ms ease;
-    }
-
-    .ProjectInfo {
-      transform: translateX(0);
-    }
-  }
 
   .ProjectClose {
     position: relative;
@@ -106,25 +113,11 @@
     height: 100%;
     backdrop-filter: blur(2px);
     background: var(--page-info-bg);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 200ms, visibility 200ms 200ms ease;
 
     @include for-size(desktop-up) {
       width: 0%;
     }
   }
-  
-
-
-
-
-
-
-
-
-
-
 
   /* Project info card */
   .ProjectInfo {
@@ -140,14 +133,6 @@
       width: 100%;
     }
   
-    // hide
-    transform: translateX(100%);
-    transition: transform 300ms 200ms ease;
-  
-    &.show {
-      transform: translateX(0);
-    }
-  
     .topline {
       @include flex(flex, space-between, center, row, wrap, 20px, 20px);
       padding: 30px 20px;
@@ -156,10 +141,17 @@
       z-index: 20;
   
       .projectName {
-        font-size: 26px;
         font-weight: 700;
+
+        @include fontResponsive($min: 20px, $viewwidth: 7vw, $default: 26px);
         text-transform: uppercase;
         color: var(--color-text-base);
+      }
+
+      .no-wrap {
+        @include for-size(mobile-m) {
+          width: fit-content;
+        }
       }
     }
 
@@ -170,6 +162,7 @@
 
       .projectAssets {
         font-size: 22px;
+        @include fontResponsive($min: 17px, $viewwidth: 3vw, $default: 22px);
         font-weight: bold;
         text-transform: uppercase;
         color: var(--color-text-base);
@@ -262,6 +255,7 @@
           color: #797979;
           margin-top: 10px;
           font-size: 14px;
+          @include fontResponsive($min: 12px, $viewwidth: 2vw, $default: 14px);
           font-weight: 500;
           line-height: 22px;
 

@@ -9,6 +9,7 @@ import { FiEdit } from "react-icons/fi";
 import { HiRefresh } from "react-icons/hi";
 import { LuBrush } from "react-icons/lu";
 import { IoIosPhonePortrait } from "react-icons/io";
+import { FaCss3Alt, FaHtml5, FaJs, FaSass } from "react-icons/fa";
 
 // JSX Components
 import Template from "./components/Devis/Template";
@@ -19,33 +20,33 @@ export const show_homePageLogo = false; /* Voir ou cacher le logo de la page d'a
 
 export const ProjectList = [
   {
-    title: "Code and chill",
-    website: undefined,
+    title: "Code & Chill",
+    path: "code-and-chill",
+    website: "https://codeandchill.fr",
     category: "Développement Web",
     maxTags: 3,
     gallery: [
-      {type: "image", src: "assets/codeandchill/darkmode.png"},
-      {type: "image", src: "assets/codeandchill/index.png"},
-      {type: "image", src: "assets/codeandchill/video.png"},
-      {type: "image", src: "assets/codeandchill/tutoriels.png"},
-      {type: "image", src: "assets/codeandchill/tutoriel_one.png"},
-      {type: "image", src: "assets/codeandchill/tutoriel_two.png"},
-      {type: "image", src: "assets/codeandchill/signup.png"},
-      {type: "image", src: "assets/codeandchill/login.png"},
-      {type: "image", src: "assets/codeandchill/footer.png"},
+      {type: "image", src: "/assets/codeandchill/darkmode.png"},
+      {type: "image", src: "/assets/codeandchill/index.png"},
+      {type: "image", src: "/assets/codeandchill/video.png"},
+      {type: "image", src: "/assets/codeandchill/tutoriels.png"},
+      {type: "image", src: "/assets/codeandchill/tutoriel_one.png"},
+      {type: "image", src: "/assets/codeandchill/tutoriel_two.png"},
+      {type: "image", src: "/assets/codeandchill/signup.png"},
+      {type: "image", src: "/assets/codeandchill/login.png"},
+      {type: "image", src: "/assets/codeandchill/footer.png"},
     ],
     tags: ["Web", "ReactJS", "NextJS", "Javascript", "HTML", "CSS", "Autres"], 
-    desc: (
-      <Fragment>
-        Code & Chill est une communauté d'entraide et d'apprentissage autodidacte du développement web front et back-end<br/>
-        J'ai crée ce site internet dans le but d'apprendre pleins de choses a travers de cours tutoriels vidéo et écris.
-      </Fragment>
-    ), 
-    minia: "assets/codeandchill/darkmode.png",
+    desc: `
+      Code & Chill est une communauté d'entraide et d'apprentissage autodidacte du développement web front et back-end<br/>
+      J'ai crée ce site internet dans le but d'apprendre pleins de choses a travers de cours tutoriels vidéo et écris.
+    `, 
+    minia: "/assets/codeandchill/darkmode.png",
     publishedAt: "31 Juillet 2023"
   },
   {
     title: "ADN's",
+    path: "adns",
     website: "https://adns-tech.fr",
     category: "Développement Web", 
     maxTags: 3,
@@ -62,60 +63,89 @@ export const ProjectList = [
   },
   {
     title: "Portfolio",
-    website: "https://adns-tech.fr/portfolio/",
+    path: "portfolio-v1",
+    website: undefined,
     category: "Développement Web", 
     maxTags: 3,
     gallery: [
-      {type: "image", src: "assets/portfolio/home.png"},
-      {type: "image", src: "assets/portfolio/competences.png"},
-      {type: "image", src: "assets/portfolio/footer.png"},
+      {type: "image", src: "/assets/portfolio/home.png"},
+      {type: "image", src: "/assets/portfolio/competences.png"},
+      {type: "image", src: "/assets/portfolio/footer.png"},
     ],
     tags: ["Web", "PHP", "Javascript", "HTML", "CSS", "Autres", "Webing"], 
     desc: "Cette version est la première version de mon portfolio qui a été pensez pour mettre mes compétences en évidence.", 
-    minia: "assets/portfolio/home.png",
-    publishedAt: "22 Juillet 2022"
-  },
-  {
-    title: "Banner maker",
-    website: "https://adns-tech.fr/banner_maker/?name=Gcassinis&color=blueviolet",
-    category: "Outil de Création Web",
-    maxTags: 3,
-    gallery: [
-      {type: "image", src: "assets/banner/index.png"},
-      {type: "image", src: "assets/banner/template.png"},
-    ],
-    tags: ["Web", "PHP", "HTML", "CSS"], 
-    desc: "J'ai crée un outil permettant de crée une bannière réactive sur la plateforme de jeux FiveM", 
-    minia: "assets/banner/index.png",
+    minia: "/assets/portfolio/home.png",
     publishedAt: "22 Juillet 2022"
   },
   {
     title: "Codeandbot",
+    path: "codeandbot",
     website: "https://github.com/DakoooM/codeandbot",
     category: "Robot Discord",
     maxTags: 3,
     gallery: [
-      {type: "image", src: "assets/codeandbot/index.png"},
-      {type: "image", src: "assets/codeandbot/ticket.png"},
-      {type: "image", src: "assets/codeandbot/ticket_open.png"},
+      {type: "image", src: "/assets/codeandbot/index.png"},
+      {type: "image", src: "/assets/codeandbot/ticket.png"},
+      {type: "image", src: "/assets/codeandbot/ticket_open.png"},
     ],
     tags: ["Javascript", "DiscordJS", "NodeJS"], 
-    desc: (
-      <Fragment>
-        J'ai crée ce robot discord dans le but d'automiser certaines actions, tels que:
+    desc: `
+      J'ai crée ce robot discord dans le but d'automiser certaines actions, tels que:\n\n
 
-        <ul>
-          <li>Commande pour bannir les membres</li>
-          <li>Commande pour supprimer des messages</li>
-          <li>Système de ticket avec logs des message lors de la fermeture</li>
-          <li>Création d'un salon temporaire quand un membre rejoins un salon</li>
-        </ul>
-      </Fragment>
-    ), 
-    minia: "assets/codeandbot/index.png",
+      Commande pour bannir les membres\n
+      Commande pour supprimer des messages\n
+      Système de ticket avec logs des message lors de la fermeture\n
+      Création d'un salon temporaire quand un membre rejoins un salon
+    `, 
+    minia: "/assets/codeandbot/index.png",
     publishedAt: "22 Juillet 2022"
   },
 ];
+
+const dev_iconSize = 50;
+
+export const devSkills = [
+  {
+    lang: "Javascript", 
+    key: "lang_js",
+    icon: (info, style) => <FaJs size={dev_iconSize} className="icon" title={info} style={style}/>,
+    rotate: 90,
+    height: 7,
+    info: "JavaScript est au cœur des langages utilisés par les développeurs web",
+    colors: ["#FFCA28", "#ffd028"],
+    percent: 80
+  },
+  {
+    lang: "CSS (Cascade Style Sheet)", 
+    key: "lang_css",
+    icon: (info, style) => <FaCss3Alt size={dev_iconSize} className="icon" title={info} style={style}/>,
+    rotate: 90,
+    height: 7,
+    info: "CSS est au cœur des langages utilisés par les développeurs web",
+    colors: ["#42A5F5", "#2f8cd8"],
+    percent: 90
+  },
+  {
+    lang: "HTML5 (Hyper Text Markdown Language)", 
+    key: "lang_html",
+    icon: (info, style) => <FaHtml5 size={dev_iconSize} className="icon" title={info} style={style}/>,
+    rotate: 90,
+    height: 7,
+    info: "HTML5 est au cœur des langages utilisés par les développeurs web",
+    colors: ["#CB4827", "#cb5b27"],
+    percent: 80
+  },
+  {
+    lang: "SCSS (Syntactically awesome stylesheets)", 
+    key: "lang_scss",
+    icon: (info, style) => <FaSass size={dev_iconSize} className="icon" title={info} style={style}/>,
+    rotate: 90,
+    height: 7,
+    info: "SCSS est au cœur des langages utilisés par les développeurs web",
+    colors: ["#CC689A", "#cc68bb"],
+    percent: 60
+  },
+]
 
 const NavItemsIconsSize = 25;
 export const NavItems = [

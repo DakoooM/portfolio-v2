@@ -11,10 +11,6 @@ import {
   Text,
 } from "@react-email/components";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
-
 export const DevisEmail = ({
   name = "John Doe",
   offer = { label: "Standard" },

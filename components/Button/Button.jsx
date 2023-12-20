@@ -5,6 +5,7 @@ function Button({
   _type = "button",
   href = undefined,
   bgColor = undefined,
+  cls = "",
   variant = "contained", /* contained, outlined */
   type = "primary",
   children = undefined,
@@ -19,7 +20,7 @@ function Button({
   ...props
 }) {
   const disabledClasse = disabled ? " disabled" : "";
-  const ButtonCls = `Button ${disabledClasse} ${type} ${!bgColor ? variant : ""}`;
+  const ButtonCls = `Button ${disabledClasse} ${type} ${cls} ${!bgColor ? variant : ""}`;
   const ButtonStyles = { borderRadius: rounded, backgroundColor: bgColor, ...style };
 
   if (href) {

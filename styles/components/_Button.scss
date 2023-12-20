@@ -32,6 +32,11 @@
     &.success {
       outline: 4px solid rgba(22, 160, 132, 0.5);
     }
+
+    &.danger {
+      outline: 4px solid rgba(231, 77, 60, 0.5);
+
+    }
   }
 
   &.disabled {

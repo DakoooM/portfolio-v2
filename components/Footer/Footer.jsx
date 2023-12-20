@@ -23,7 +23,7 @@ function FooterSection({ title = "Home", items = [] }) {
 function Footer() {
   return (
     <footer className="Footer">
-      <SimpleBlob size={50} className="simpleBlob"/>
+      <SimpleBlob size={50} fillColor="#58a6ee" className="simpleBlob"/>
 
       <div className="FooterContainer">
         <div className="Container">

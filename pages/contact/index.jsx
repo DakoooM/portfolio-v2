@@ -3,14 +3,17 @@ import Heading from "@/components/Heading";
 import HtmlHeader from "@/components/HtmlHeader";
 import { InputWithLabel, TextAreaWithLabel } from "@/components/Inputs";
 import { useNotification } from "@/components/ToastNotification";
+import APIContext from "@/contexts/APIContext";
 import axios from "axios";
-import { useState } from "react";
+import Link from "next/link";
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form"
 import { IoMailUnreadOutline } from "react-icons/io5";
 
 function ContactPage() {
   const [ toast ] = useNotification();
   const [isLoading, setLoading] = useState(false);
+  const { API_Key } = useContext(APIContext);
 
   const {
     register,
@@ -18,12 +21,10 @@ function ContactPage() {
   } = useForm();
 
   const onSubmit = async (d) => {
-    console.log("data", d);
     setLoading(true);
 
     try {
-      const { data } = await axios.post("/api/v1/send-email", d);
-      console.info("data", data);
+      await axios.post("/api/v1/send-email", { data: d, API_Key });
       toast(`Bravo ${d.firstname} ${d.lastname}! Vous avez envoyée un email a Giovani, il vous répondera dans 7 jour(s) ouvrés maximum!`, 15, "success");
       setLoading(false);
     } catch(err) {
@@ -37,7 +38,7 @@ function ContactPage() {
     <div className="ContactPage">
       <HtmlHeader title="Cassinis Giovani - Contactez-moi" desc="Contactez Giovani Cassinis pour une demande particulière."/>
       <Heading level={1} className="title">Contactez moi</Heading>
-      <p className="desc">Pour une demande particulière, remplissez ce formulaire pour m'envoyer un email.</p>
+      <p className="desc">Pour une demande particulière, remplissez ce formulaire pour m'envoyer un email ou par téléphone <Link href="tel:0658552538">06 58 55 25 38</Link>.</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="formulaire" autoComplete="on">
         <div className="row-group">

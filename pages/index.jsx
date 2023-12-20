@@ -5,13 +5,13 @@ import HtmlHeader from "@/components/HtmlHeader";
 import Section from "@/components/Section";
 import MaTete from "@/public/ma-tete.jpg";
 import Image from "next/image";
-import { CardSkillsItems, show_homePageLogo } from "@/global.config";
+import { CardSkillsItems, show_homePageLogo, devSkills, CardsAdvantagesList } from "@/global.config";
 import { v4 as uuidv4 } from "uuid";
 import { CardAdvantage, CardAdvantagesContainer } from "@/components/CardAdvantages/CardAdvantages";
-import { CardsAdvantagesList } from "@/global.config";
 import { SkillProgressContainer, SkillProgress } from "@/components/SkillProgress";
-import { devSkills } from "@/pages/home.config";
 import { AiOutlineSafetyCertificate, AiOutlineShoppingCart } from "react-icons/ai";
+import Illustration from "@/components/Illustration"
+import { FiEye } from "react-icons/fi";
 
 export default function Home() {
   return (
@@ -22,9 +22,11 @@ export default function Home() {
       />
 
       <Section className="Presentation">
+        <Illustration className="illustration"/>
+        
         {
           show_homePageLogo && (
-            <Image src={MaTete} alt="tete giovani cassinis" height={300} draggable={false} className="logo-personnal" />
+            <Image src={MaTete} alt="image de giovani cassinis" height={300} draggable={false} className="logo-personnal" />
           )
         }
 
@@ -35,7 +37,8 @@ export default function Home() {
           </Heading>
 
           <p className="pDesc">
-            21 ans, passionée d'informatique depuis l'âge de 13 ans.
+            🚀 Transformez vos idées en réalité numérique avec un développeur web passionné et expérimenté.<br/><br/>
+            Je suis Giovani, un développeur web fullstack freelance, spécialisé dans la création de solutions web sur mesure, dynamiques et performantes.
           </p>
 
           <div className="buttonsPresent">
@@ -78,17 +81,7 @@ export default function Home() {
 
         <div className="comp_ctn">
           <div className="comp_left">
-            <Heading level={4}>Compétences en Développement</Heading>
-
-            <SkillProgressContainer>
-              {devSkills.map(skill => <SkillProgress key={skill.key} {...skill}/>)}
-            </SkillProgressContainer>
-          </div>
-
-          <hr className="HorizontalSeparator" />
-
-          <div className="comp_right">
-            <Heading level={4}>Domaines de compétences</Heading>
+            <Heading level={4} className="compTitle">Compétences en Développement</Heading>
 
             <SkillProgressContainer>
               {devSkills.map(skill => <SkillProgress key={skill.key} {...skill}/>)}
@@ -115,7 +108,7 @@ export default function Home() {
             ) : undefined)
           }
 
-          <Button href="/tarifs" rounded={5}>Voir plus...</Button>
+          <Button href="/tarifs" rounded={20} leftIcon={<FiEye size={20}/>}>Voir plus...</Button>
         </CardAdvantagesContainer>
       </Section>
     </div>

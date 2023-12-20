@@ -16,10 +16,10 @@ $navbarHeight: 80px;
     $contents: space-between,
     $items: center,
     $direction: row,
-    $wrap: nowrap
+    $wrap: wrap
   );
 
-  &.responsive {
+  &.actived {
     transition: background-color 500ms ease;
 
     .Right {
@@ -76,6 +76,15 @@ $navbarHeight: 80px;
 
       div.hamburger-react {
         display: block;
+      }
+    }
+    
+    .ThemeSwitcher {
+      color: var(--color-text-base);
+      cursor: pointer;
+
+      .modeIcon {
+        font-size: 25px;
       }
     }
       

@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 const ModalContext = createContext({
-  showModal: true,
+  showModal: false,
   setShowModal: () => {},
   
   modalTitle: "",

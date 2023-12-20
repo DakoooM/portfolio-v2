@@ -4,13 +4,15 @@ import ProjectCard from "@/components/ProjectCard";
 import ProjectCardContainer from "@/components/ProjectCard/Container";
 import { ProjectList } from "@/global.config";
 
-function PortfolioPage() {
+function PortfolioPage({ header = true }) {
   return (
     <div className="PortfolioPage">
-      <HtmlHeader
-        title="Cassinis Giovani - Mes projets"
-        desc="Giovani Cassinis, Développer Web en Freelance depuis 2022, je réalise vos projets professionnel en réalisant un cahier des charges et un devis"
-      />
+      {header && (
+             <HtmlHeader
+             title="Cassinis Giovani - Mes Projets"
+             desc="Giovani Cassinis, Développer Web en Freelance depuis 2022, je réalise vos projets professionnel en réalisant un cahier des charges et un devis"
+           />
+      )}
 
       <div>
         <Heading level={1} className="pageTitle">MES PROJETS</Heading>

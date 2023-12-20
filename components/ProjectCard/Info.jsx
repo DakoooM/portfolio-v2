@@ -1,24 +1,17 @@
-import { createPortal } from "react-dom";
 import Button from "@/components/Button/Button";
 import { IoIosClose } from "react-icons/io";
-import { memo, useContext, useEffect, useState } from "react";
-import ProjectContext from "@/contexts/ProjectContext";
+import { useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 
+// Icons
+import { FiLock } from "react-icons/fi";
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaExternalLinkAlt, FaMapPin } from "react-icons/fa";
+import { useRouter } from "next/router";
 
-function ProjectInfo() {
+function ProjectInfo(data) {
   const [onGrab, setGrabbing] = useState(false);
-  const { show, setShow, data } = useContext(ProjectContext);
-
-  useEffect(() => {
-    if (show) {
-      document.body.classList.add("ov-hidden");
-    } else if (!show) {
-      document.body.classList.remove("ov-hidden");
-    }
-  }, [show]);
+  const { push } = useRouter();
 
   const downloadFiles = (event = undefined, gallery = []) => {
     event?.preventDefault();
@@ -42,32 +35,33 @@ function ProjectInfo() {
   }
 
   const JSX = (
-    <div className={`ProjectInfoContainer${show ? " show" : ""}`}>
-      <div className="ProjectClose" onClick={() => setShow(false)}></div>
+    <div className="ProjectInfoContainer">
+      <div className="ProjectClose" onClick={() => push("/portfolio")}></div>
 
       <div className="ProjectInfo">
         <div className="topline">
           <span className="projectName">{data?.title}</span>
 
-          <Button variant="outlined" rounded={5} style={{ fontSize: 18, padding: 10 }} leftIcon={<IoIosClose size={30} />} onClick={() => setShow(false)} />
+          <Button variant="outlined" href="/portfolio" rounded={5} style={{ fontSize: 18, padding: 10 }} cls="no-wrap" leftIcon={<IoIosClose size={30} />} />
         </div>
 
-        {data?.gallery && (
-          <div className="assets">
-            <div className="projectAssets">Découvrez {data?.gallery.length} Ressources</div>
-            <Button variant="outlined" onClick={e => downloadFiles(e, data?.gallery)} rounded={10}>Télécharger les ressources</Button>
-          </div>
-        )}
+        {
+          data?.gallery && (
+            <div className="assets">
+              <div className="projectAssets">Découvrez {data?.gallery.length} Ressources</div>
+              <Button variant="outlined" onClick={e => downloadFiles(e, data?.gallery)} rounded={10}>Télécharger les images</Button>
+            </div>
+          )
+        }
 
         {data?.gallery && (
           <ScrollContainer className="gallery" activationDistance={true} onStartScroll={() => setGrabbing(true)} onEndScroll={() => setGrabbing(false)} vertical={true}>
             {
-              data.gallery.map(source => {
+              data.gallery.map((source, index) => {
                 if (source.type === "video") {
-                  return show && (
+                  return (
                     <iframe
                       className={onGrab ? "video grab" : "video"}
-                      allowTransparency
                       allowFullScreen
                       key={source.src}
                       src={`https://www.youtube.com/embed/${source.src}`}
@@ -76,7 +70,7 @@ function ProjectInfo() {
                   )
                 } else if (source.type === "image") {
                   return (
-                    <img src={source.src} key={source.src} alt={`image du Projet ${data?.title}`} draggable={false} className="image" />
+                    <img src={source.src} key={source.src} alt={`image du Projet numéro ${index + 1} ${data?.title}`} draggable={false} className="image" />
                   )
                 }
               })
@@ -120,12 +114,19 @@ function ProjectInfo() {
             </div>
           </div>
         </div>
-        <Button leftIcon={<FaExternalLinkAlt />} disabled={!data?.website} href={data?.website} variant="outlined" style={{ width: "fit-content", fontSize: 15, fontWeight: "600", margin: "0 auto 20px auto" }} rounded={10}>VISITER LE SITE</Button>
+
+        <Button  
+          leftIcon={data?.website ? <FaExternalLinkAlt /> : <FiLock/>} 
+          disabled={!data?.website} 
+          href={data?.website} 
+          variant="outlined" 
+          style={{ width: "fit-content", fontSize: 15, fontWeight: "600", margin: "0 auto 20px auto" }} 
+          rounded={10}>VISITER LE SITE</Button>
       </div>
     </div>
   )
 
-  return createPortal(JSX, document.body);
+  return JSX;
 }
 
-export default memo(ProjectInfo);
+export default ProjectInfo;

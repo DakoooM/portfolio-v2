@@ -17,8 +17,8 @@ function LegalsPage() {
       <p className="text"><strong className="strong">Prénom :</strong> Giovani</p>
 
       <Heading level={3} className="subtitle">Hébergement du site</Heading>
-      <p className="text"><strong className="strong">Nom de l'hébergeur :</strong> Gandi</p>
-      <p className="text"><strong className="strong">Adresse :</strong> 63-65 Boulevard Masséna, 75013 Paris</p>
+      <p className="text"><strong className="strong">Nom de l'hébergeur :</strong> Hostinger</p>
+      <p className="text"><strong className="strong">Adresse :</strong> 61 Lordou Vironos Street, 6023 Larnaca, Chypre</p>
 
       <Heading level={3} className="subtitle">Propriété intellectuelle</Heading>
       <p className="text">Ce site et son contenu sont la propriété de Gcassinis.</p>

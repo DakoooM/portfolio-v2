@@ -5,14 +5,13 @@ import Switch from "@/components/Switch";
 import { CardsAdvantagesList, TVA_Produits } from "@/global.config";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { formatPrice } from "@/utils/price.util";
 
 function TarifsPage() {
   const [showHT, setShowHT] = useState(false);
 
   const onChangePrices = (e) => {
     const { checked } = e?.target;
-
+    
     // 10 * 20 (pourcent) / 100
     // prendre le calcule au dessus et moins le prix du produit
     setShowHT(checked);

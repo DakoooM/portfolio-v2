@@ -48,7 +48,7 @@ export const ToastNotification = ({
 
 export const useNotification = () => {
   const { addNotification } = useContext(NotificationContext);
-  
+
   const push = useCallback((text = "None", time = 15, type = "success", id = uuid()) => {  
     addNotification({ text, time, type, id });
   }, []);

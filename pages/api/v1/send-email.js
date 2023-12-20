@@ -1,31 +1,29 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { resend } from "@/lib/resend";
 import { ContactEmail } from "@/emails/ContactEmail";
+import { IsAPIKeyValid } from "@/utils/server.util";
 
-export default async function SendEmail(req, res) {
+/** @type {import("next").NextApiHandler} */
+export default async (req, res) => {
   const { method, body } = req;
-  const { firstname, lastname } = body;
+  const { data = {firstname: "", lastname: ""}, API_Key = undefined } = body;
 
   switch (method) {
     case "POST":
+      IsAPIKeyValid(res, API_Key);
+
       try {
-        const { data } = await resend.emails.send({
-          from: `Gcassinis <contact@cassinisgiovani.fr>`,
-          to: "cassinisgiovani@gmail.com",
-          subject: `[WARN] Demande de contact de ${firstname} ${lastname}`,
-          react: ContactEmail(body),
-          /* attachments: [
-            {
-              path: "http://www.code-verificationpermis.fr/pdf/tableau-question.pdf",
-              filename: "Two.pdf"
-            },
-          ] */
+        const { data: resp_email } = await resend.emails.send({
+          from: `Gcassinis <no-reply@cassinisgiovani.fr>`,
+          to: "contact@cassinisgiovani.fr",
+          subject: `Demande de contact de ${data?.firstname} ${data?.lastname}`,
+          react: ContactEmail(data)
         });
   
         res.status(200).json({ 
           status: 200, 
           sended: true,
-          email: data 
+          email: resp_email 
         });
       } catch(error) {
         console.log("err", error);
