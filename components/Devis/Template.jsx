@@ -1,24 +1,24 @@
-import { Fragment, useContext, useState, useEffect } from "react"
-import { InputWithLabel, TextAreaWithLabel } from "../Inputs";
-import Switch from "../Switch";
-import Button from "../Button/Button";
-import { IoDocumentTextOutline } from "react-icons/io5";
+import { Fragment, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { jsxToString, transformToUndefined } from "@/utils/strings.util";
-import { useNotification } from "../ToastNotification";
-import ModalContext from "@/contexts/ModalContext";
 import axios from "axios";
-import APIContext from "@/contexts/APIContext";
-import { findOfferByName } from "@/utils/search.util";
+import Switch from "../Switch";
 
-/* 
- client info needed:
-   
-  name: "JOHN DOE",
-  adress: "54 Rue de la ferme",
-  postal: "16000 ANGOULÊME",
-  tel: "06 58 55 25 38"
-*/
+// Icons
+import { IoDocumentTextOutline } from "react-icons/io5";
+
+// Components
+import { InputWithLabel, TextAreaWithLabel } from "../Inputs";
+import { useNotification } from "../ToastNotification";
+import Button from "../Button/Button";
+// Contexts
+import ModalContext from "@/contexts/ModalContext";
+import APIContext from "@/contexts/APIContext";
+
+// Utils
+import { findOfferByName } from "@/utils/search.util";
+import { priceWithTVA, getTVA, calcTVAByPrice } from "@/utils/number.util";
+import { jsxToString, transformToUndefined, replaceAllTagWith } from "@/utils/strings.util";
+
 function Template({
   type = "standard" /* standard, ecommerce, standard_perso */
 }) {
@@ -26,7 +26,7 @@ function Template({
   const [dataIsLoading, setDataLoading] = useState(false);
   const { API_Key } = useContext(APIContext);
   const { setShowModal } = useContext(ModalContext);
-  const [toast] = useNotification();
+  const [ toast ] = useNotification();
 
   const {
     register,
@@ -35,29 +35,33 @@ function Template({
 
   const onSubmit = async (data) => {
     if (!isAccept) return toast("Vous devez cocher la case qui permet d'accepter\nque les informations saisies soient exploitée dans le cadre de la demande de devis.", 10, "warning");
-    
+
     const offer = findOfferByName(type);
     if (!offer) return toast(`Cette offre n'existe pas, veuillez contactez le développeur !`, 20, "danger");
-    
+
     let newData = {
       name: data.devis_name,
       mail: data.devis_mail,
       desc: data.devis_desc,
       adress: data.devis_adress,
       phone: data.devis_phone,
-      website: transformToUndefined(data.devis_website),
+      website: transformToUndefined(data.devis_website)
     }
 
     try {
       await axios.post("/api/v1/send-email-devis", {
         API_Key,
         data: newData,
-        features: {
-          
+        prices: {
+          ttc: priceWithTVA(offer.price),
+          ht: priceWithTVA(offer.price, false, false),
+          tvaPrice: calcTVAByPrice(offer.price), 
+          tva_pourcent: getTVA()
         },
-        offer: { 
+        offer: {
           label: replaceAllTagWith(jsxToString(offer.label())),
         },
+        features: offer.features
       });
 
       setDataLoading(true);
@@ -144,7 +148,15 @@ function Template({
       />
 
       <Switch leftLabel={SwitchLabel} containerStyle={{ justifyContent: "center" }} onChecked={e => onAccept(e)} fontSize={12} />
-      <Button _type="sumbit" disabled={dataIsLoading} isLoading={dataIsLoading} leftIcon={<IoDocumentTextOutline size={20} />} style={{ width: "100%", fontWeight: 600, fontSize: 15 }} rounded={5}>Demander le Devis</Button>
+      <Button
+        _type="sumbit"
+        disabled={dataIsLoading}
+        isLoading={dataIsLoading}
+        leftIcon={<IoDocumentTextOutline size={20} />}
+        style={{ width: "100%", fontWeight: 600, fontSize: 15 }}
+        rounded={5}>
+        Demander le Devis
+      </Button>
     </form>
   )
 }

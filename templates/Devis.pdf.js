@@ -149,6 +149,7 @@ const DevisPDF = ({
   total_ttc,
   tvaPrice,
   client,
+  tva_pourcent,
   features
 }) => (
   <Document language="fr">
@@ -269,7 +270,7 @@ const DevisPDF = ({
 
         <View style={styles.fakeTableContainerBottom}>
           <View style={styles.tableColTopStyle}>
-            <Text style={styles.tableCellHeaderStyleTop}>TVA (20,00%)</Text>
+            <Text style={styles.tableCellHeaderStyleTop}>TVA ({tva_pourcent}%)</Text>
           </View>
 
           <Text style={styles.tableCellBottom}>{tvaPrice} €</Text>
@@ -277,13 +278,14 @@ const DevisPDF = ({
 
         <View style={styles.fakeTableContainerBottom}>
           <View style={styles.tableColTopStyle}>
-            <Text style={styles.tableCellHeaderStyleTop}>Total TTC</Text>
+            <Text style={styles.tableCellHeaderStyleTop}>Total (TTC)</Text>
           </View>
 
           <Text style={styles.tableCellBottom}>{total_ttc} €</Text>
         </View>
       </View>
 
+      <Text style={styles.textMTop}>TVA non applicable – Article 293B du Code général des impôts</Text>
       <Text style={styles.textMTop}>Le paiement est du dans 30 jours a compter du {date}</Text>
     </Page>
   </Document>

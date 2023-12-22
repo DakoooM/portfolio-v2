@@ -4,9 +4,7 @@ import DevisEmail from "@/emails/DevisEmail";
 import { renderToBuffer } from "@react-pdf/renderer";
 import DevisPDF from "@/templates/Devis.pdf";
 import { IsAPIKeyValid } from "@/utils/server.util";
-import { addDevis, getFileExistence, saveFileAs } from "@/utils/file.util";
-
-const randomInt = (min = 0, max = 999) => Math.floor(Math.random() * (max - min) + min);
+import { addDevis, getDevisLength, saveFileAs } from "@/utils/file.util";
 
 /** @type {import("next").NextApiHandler} */
 export default async (req, res) => {
@@ -18,6 +16,18 @@ export default async (req, res) => {
     offer = {
       label: "Standard",
     },
+    prices = {
+      ttc: 0,
+      ht: 0,
+      tva: 0, 
+      tva_pourcent: 0
+    },
+    features = {
+      description: ["Aucune"],
+      quantity: [1],
+      prix_unitaire_ht: [0],
+      prix_total_ht: [0]
+    },
     API_Key = undefined,
   } = body;
   
@@ -26,30 +36,28 @@ export default async (req, res) => {
       IsAPIKeyValid(res, API_Key);
       
       try {
-        const generated = randomInt(199, 999);
+        const devisNumber = getDevisLength();
+        const actualDate = new Date();
         
         const devisInfos = {
-          number: 999,
-          date: new Date().toLocaleDateString("fr-FR"),
-          total_ht: 100,
-          total_ttc: 200,
-          tvaPrice: 7,
+          number: devisNumber + 1,
+          date: actualDate.toLocaleDateString("fr-FR"),
+          total_ht: prices.ht,
+          total_ttc: prices.ttc,
+          tvaPrice: prices.tvaPrice,
+          tva_pourcent: prices.tva_pourcent,
           client: {
             name: data.name,
             adress: data.adress,
             tel: data.phone
           },
-          features: {
-            description: ["Création de Site Web", "Hébergement Pendant 1 ans"],
-            quantity: [1, 2],
-            prix_unitaire_ht: [1040.20, 100.25],
-            prix_total_ht: [1040.2, 200.50]
-          }
+
+          features: features
         };
 
         const renderedPDF = await renderToBuffer(<DevisPDF {...devisInfos} />);
 
-        addDevis()
+        addDevis(devisInfos);
 
         await resend.emails.send({
           from: "Gcassinis <contact@cassinisgiovani.fr>",
@@ -64,12 +72,12 @@ export default async (req, res) => {
           attachments: [
             {
               content: renderedPDF,
-              filename: `Gcassinis-Devis-#${generated}.pdf`
+              filename: `Gcassinis-Devis-#${devisNumber + 1}.pdf`
             },
           ]
         });
 
-        saveFileAs(`/public/devis/devis-#${generated}.pdf`, renderedPDF);
+        saveFileAs(`/public/devis/devis-#${devisNumber + 1}.pdf`, renderedPDF);
   
         res.status(200).json({ 
           status: 200, 

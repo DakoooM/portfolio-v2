@@ -102,7 +102,7 @@ export default function Home() {
         <CardAdvantagesContainer>
           {
             CardsAdvantagesList.map((item, k) => k < 2 ? (
-              <CardAdvantage type={item.type} price={item.price} advs={item.advs} key={uuidv4()}>
+              <CardAdvantage type={item.type} price={item.price} cardKey={k} advs={item.advs} key={uuidv4()}>
                 {item.label()}
               </CardAdvantage>
             ) : undefined)
