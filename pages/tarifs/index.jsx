@@ -2,7 +2,7 @@ import { CardAdvantage, CardAdvantagesContainer } from "@/components/CardAdvanta
 import Heading from "@/components/Heading";
 import HtmlHeader from "@/components/HtmlHeader";
 import Switch from "@/components/Switch";
-import { CardsAdvantagesList, TVA_Produits } from "@/global.config";
+import { CardsAdvantagesList, TVA_Enabled, TVA_Produits } from "@/global.config";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -29,15 +29,17 @@ function TarifsPage() {
         <p className="desc">Découvrez nos offres particulièrement intéréssante niveaux qualité/prix.</p>
       </div>
 
-      <Switch onChecked={onChangePrices} leftLabel="Voir les Prix HT"/>
+      {TVA_Enabled && (
+        <Switch onChecked={onChangePrices} leftLabel="Voir les Prix HT"/>
+      )} 
 
       <CardAdvantagesContainer>
         {
-          CardsAdvantagesList.map(item => {
+          CardsAdvantagesList.map((item, k) => {
             const calculTVA = (item.price - (item.price * TVA_Produits / 100)).toFixed(2);
 
             return (
-              <CardAdvantage type={item.type} ttc={!showHT} price={showHT ? calculTVA : item.price} advs={item.advs} key={uuidv4()}>
+              <CardAdvantage type={item.type} cardKey={k} ttc={!showHT} price={showHT ? calculTVA : item.price} advs={item.advs} key={uuidv4()}>
                 {item.label()}
               </CardAdvantage>
             )

@@ -182,10 +182,10 @@
       padding: 30px 50px;
       overflow-x: auto;
       overflow-y: hidden;
-      cursor: grab;
+      cursor: grabbing;
 
       &:active {
-        cursor: grabbing;
+        cursor: grab;
       }
 
       @include for-size(tablet-portrait-up) {

@@ -15,6 +15,7 @@ import { FaCss3Alt, FaHtml5, FaJs, FaSass } from "react-icons/fa";
 import Template from "./components/Devis/Template";
 
 // Global Variables
+export const TVA_Enabled = true; /* si la tva n'est pas applicable alors "false" */
 export const TVA_Produits = 20; /* TVA sur le prix des tarifications */
 export const show_homePageLogo = false; /* Voir ou cacher le logo de la page d'acceuil */
 
@@ -227,7 +228,7 @@ export const CardsAdvantagesModal = {
     element: <Template type="standard_perso"/>
   },
 
-  "ecommerce_perso": {
+  "ecommerce": {
     title: "E-commerce Personalisée",
     element: <Template type="ecommerce"/>
   }
@@ -235,13 +236,18 @@ export const CardsAdvantagesModal = {
 
 export const CardsAdvantagesList = [
   {
-    label: () => <strong>SITE VITRINE<br />STANDARD</strong>,
+    label: () => <strong>SITE VITRINE <br/> STANDARD</strong>,
     price: 1299,
     type: "standard",
+    features: {
+      description: ["Création de Site Web", "Hébergement Pendant 1 ans"],
+      quantity: [1, 2],
+      prix_unitaire_ht: [1040.20, 100.25],
+      prix_total_ht: [1040.2, 200.50]
+    },
     advs: [
       {
         desc: "Développé sur Mesure",
-        key: "creation_1",
         add: true,
         tooltip: (
           <Fragment>
@@ -251,7 +257,6 @@ export const CardsAdvantagesList = [
       },
       {
         desc: "Panel Administrateur",
-        key: "admin_1",
         add: false,
         tooltip: (
           <Fragment>
@@ -262,19 +267,16 @@ export const CardsAdvantagesList = [
       },
       {
         desc: "Sélection d'une palette de couleur",
-        key: "palette_colors",
         add: true,
         tooltip: <Fragment>Je vous choisi au préalable une palette de couleur correspondant a vos attentes</Fragment>
       },
       {
         desc: "Server side Rendering (SSR)",
-        key: "ssr_1",
         add: true,
         tooltip: <Fragment>Mise en place du SSR (Server side rendering) avec NextJS pour un maximum de référencement</Fragment>
       },
       {
         desc: "Site responsive (tous supports)",
-        key: "responsive_1",
         add: true,
         tooltip: (
           <Fragment>Le site sera fonctionnel avec tout les supports (mobile, ordinateur, tablette...)</Fragment>
@@ -282,56 +284,54 @@ export const CardsAdvantagesList = [
       },
       {
         desc: "Mise en place du contenu",
-        key: "content_1",
         add: true,
         tooltip: <Fragment>Mise en place du contenu du site internet (textes, images, vidéos...)</Fragment>
       },
       {
         desc: "Formulaire de contact",
-        key: "contact_1",
         add: true,
         tooltip: <Fragment>Mise en place d'un formulaire de contact pour vos clients, particuliers...</Fragment>
       },
       {
         desc: "Statistiques de visite",
-        key: "stats_1",
         add: true,
         tooltip: <Fragment>Mise en place de statistiques Google Analytics pour garder un oeil sur les visites de votre site...</Fragment>
       },
       {
         desc: "Mise en ligne du site",
-        key: "ligne_1",
         add: true,
         tooltip: <Fragment>Si vous souhaitez je peux vous aidez a mettre votre site en ligne pour de meilleur performances et très rapidement.</Fragment>
       },
       {
         desc: "Formation utilisation du site",
-        key: "formation_1",
         add: true,
         tooltip: <Fragment>Je vous forme a savoir correctement utilisé votre site.</Fragment>
       },
       {
         desc: "Optimisation du référencement (SEO)",
-        key: "seo_1",
         add: true,
         tooltip: <Fragment>Optimisation des balises HTML pour avoir le meilleur référencement naturel sur les moteurs de recherche tels que google, brave...</Fragment>
       }
     ]
   },
   {
-    label: () => <strong>SITE VITRINE<br />PERSONNALISÉ</strong>,
+    label: () => <strong>SITE VITRINE <br/> PERSONNALISÉ</strong>,
     price: 1799,
     type: "standard_perso",
+    features: {
+      description: ["Création de Site Web", "Hébergement Pendant 1 ans"],
+      quantity: [1, 2],
+      prix_unitaire_ht: [1040.20, 100.25],
+      prix_total_ht: [1040.2, 200.50]
+    },
     advs: [
       {
         desc: "Développé sur Mesure",
-        key: "creation_1",
         add: true,
         tooltip: <Fragment>Je vous crée un site internet sur mesure avec le framework Javascript NextJS, React.js et SCSS</Fragment>
       },
       {
         desc: "Panel Administrateur",
-        key: "admin_2",
         add: true,
         tooltip: (
           <Fragment>
@@ -342,19 +342,16 @@ export const CardsAdvantagesList = [
       },
       {
         desc: "Sélection d'une palette de couleur",
-        key: "palette_colors",
         add: true,
         tooltip: <Fragment>Je vous choisi au préalable une palette de couleur correspondant a vos attentes</Fragment>
       },
       {
         desc: "Server side Rendering (SSR)",
-        key: "ssr_1",
         add: true,
         tooltip: <Fragment>Mise en place du SSR (Server side rendering) avec NextJS pour un maximum de référencement</Fragment>
       },
       {
         desc: "Site responsive (tous supports)",
-        key: "responsive_1",
         add: true,
         tooltip: (
           <Fragment>Le site sera fonctionnel avec tout les supports (mobile, ordinateur, tablette...)</Fragment>
@@ -362,56 +359,54 @@ export const CardsAdvantagesList = [
       },
       {
         desc: "Mise en place du contenu",
-        key: "content_1",
         add: true,
         tooltip: <Fragment>Mise en place du contenu du site internet (textes, images, vidéos...)</Fragment>
       },
       {
         desc: "Formulaire de contact",
-        key: "contact_1",
         add: true,
         tooltip: <Fragment>Mise en place d'un formulaire de contact pour vos clients, particuliers...</Fragment>
       },
       {
         desc: "Statistiques de visite",
-        key: "stats_1",
         add: true,
         tooltip: <Fragment>Mise en place de statistiques Google Analytics pour garder un oeil sur les visites de votre site...</Fragment>
       },
       {
         desc: "Mise en ligne du site",
-        key: "ligne_1",
         add: true,
         tooltip: <Fragment>Si vous souhaitez je peux vous aidez a mettre votre site en ligne pour de meilleur performances et très rapidement.</Fragment>
       },
       {
         desc: "Formation utilisation du site",
-        key: "formation_1",
         add: true,
         tooltip: <Fragment>Je vous forme a savoir correctement utilisé votre site.</Fragment>
       },
       {
         desc: "Optimisation du référencement (SEO)",
-        key: "seo_1",
         add: true,
         tooltip: <Fragment>Optimisation des balises HTML pour avoir le meilleur référencement naturel sur les moteurs de recherche tels que google, brave...</Fragment>
       }
     ]
   },
   {
-    label: () => <strong>SITE E-COMMERCE<br />PERSONNALISÉ</strong>,
-    type: "ecommerce_perso",
+    label: () => <strong>SITE E-COMMERCE <br/> PERSONNALISÉ</strong>,
     price: 2999,
+    type: "ecommerce",
+    features: {
+      description: ["Création de Site Web", "Hébergement Pendant 1 ans"],
+      quantity: [1, 2],
+      prix_unitaire_ht: [1040.20, 100.25],
+      prix_total_ht: [1040.2, 200.50]
+    },
     advs: [
       {
         desc: "Développé sur Mesure",
-        key: "creation_1",
         add: true,
         tooltip: <Fragment>Je vous crée un site internet sur mesure avec le framework Javascript NextJS, React.js et SCSS</Fragment>
       },
       {
         desc: "Panel Administrateur",
-        key: "admin_2",
         add: true,
         tooltip: (
           <Fragment>
@@ -422,19 +417,16 @@ export const CardsAdvantagesList = [
       },
       {
         desc: "Sélection d'une palette de couleur",
-        key: "palette_colors",
         add: true,
         tooltip: <Fragment>Je vous choisi au préalable une palette de couleur correspondant a vos attentes</Fragment>
       },
       {
         desc: "Server side Rendering (SSR)",
-        key: "ssr_1",
         add: true,
         tooltip: <Fragment>Mise en place du SSR (Server side rendering) avec NextJS pour un maximum de référencement</Fragment>
       },
       {
         desc: "Site responsive (tous supports)",
-        key: "responsive_1",
         add: true,
         tooltip: (
           <Fragment>Le site sera fonctionnel avec tout les supports (mobile, ordinateur, tablette...)</Fragment>
@@ -442,37 +434,31 @@ export const CardsAdvantagesList = [
       },
       {
         desc: "Mise en place du contenu",
-        key: "content_1",
         add: true,
         tooltip: <Fragment>Mise en place du contenu du site internet (textes, images, vidéos...)</Fragment>
       },
       {
         desc: "Formulaire de contact",
-        key: "contact_1",
         add: true,
         tooltip: <Fragment>Mise en place d'un formulaire de contact pour vos clients, particuliers...</Fragment>
       },
       {
         desc: "Statistiques de visite",
-        key: "stats_1",
         add: true,
         tooltip: <Fragment>Mise en place de statistiques Google Analytics pour garder un oeil sur les visites de votre site...</Fragment>
       },
       {
         desc: "Mise en ligne du site",
-        key: "ligne_1",
         add: true,
         tooltip: <Fragment>Si vous souhaitez je peux vous aidez a mettre votre site en ligne pour de meilleur performances et très rapidement.</Fragment>
       },
       {
         desc: "Formation utilisation du site",
-        key: "formation_1",
         add: true,
         tooltip: <Fragment>Je vous forme a savoir correctement utilisé votre site.</Fragment>
       },
       {
         desc: "Optimisation du référencement (SEO)",
-        key: "seo_1",
         add: true,
         tooltip: <Fragment>Optimisation des balises HTML pour avoir le meilleur référencement naturel sur les moteurs de recherche tels que google, brave...</Fragment>
       }

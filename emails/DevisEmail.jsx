@@ -20,7 +20,7 @@ export const DevisEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>Gcassinis vous a crée automatiquement un devis pour la création d'un site web {offer.label}</Preview>
+      <Preview>Gcassinis vous a crée automatiquement un devis pour la création du produit "{offer.label}"</Preview>
       <Body className="bg-blue-100 p-10">
         <Container className="bg-white border border-gray-200 p-10">
           <Img
@@ -44,7 +44,7 @@ export const DevisEmail = ({
             </Text>
 
             <Text className="text-base text-black mt-4">
-              Si vous souhaitez personalisée le devis, Veuillez me faire parvenir un email a l'adresse <Link className="underline" href="mailto:contact@cassinisgiovani.fr">contact@cassinisgiovani.fr</Link>
+              Si vous souhaitez personalisée le devis ou autres, Veuillez me faire parvenir un email a l'adresse <Link className="underline" href="mailto:contact@cassinisgiovani.fr">contact@cassinisgiovani.fr</Link>
             </Text>
 
             <Text className="text-base text-black">Cordialement, Giovani Cassinis.</Text>

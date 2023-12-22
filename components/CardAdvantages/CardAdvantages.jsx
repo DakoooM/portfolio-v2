@@ -44,6 +44,7 @@ export const CardAdvantage = ({
   type = "standard",
   price = 1299,
   advs = [],
+  cardKey = 0,
   ttc = true
 }) => {
   const { 
@@ -77,15 +78,19 @@ export const CardAdvantage = ({
 
       <div className="advantages">
         {
-          advs.map(item => (
-            <CardAdvantageInfo
-              add={item.add}
-              uniqueId={item.key}
-              tooltip={item.tooltip}
-              desc={item.desc}
-              key={uuidv4()}
-            />
-          ))
+          advs.map((item, advIndex) => {
+            const unique = `card_${cardKey}_${advIndex}`;
+
+            return (
+              <CardAdvantageInfo
+                add={item.add}
+                uniqueId={unique}
+                key={unique}
+                tooltip={item.tooltip}
+                desc={item.desc}
+              />
+            )
+          })
         }
       </div>
 
