@@ -11,7 +11,7 @@ function TarifsPage() {
 
   const onChangePrices = (e) => {
     const { checked } = e?.target;
-    
+
     // 10 * 20 (pourcent) / 100
     // prendre le calcule au dessus et moins le prix du produit
     setShowHT(checked);
@@ -30,28 +30,24 @@ function TarifsPage() {
       </div>
 
       {TVA_Enabled && (
-        <Switch onChecked={onChangePrices} leftLabel="Voir les Prix HT"/>
-      )} 
+        <Switch onChecked={onChangePrices} leftLabel="Voir les Prix HT" />
+      )}
 
       <CardAdvantagesContainer>
         {
-          CardsAdvantagesList.map((item, k) => {
-            const calculTVA = (item.price - (item.price * TVA_Produits / 100)).toFixed(2);
-
-            return (
-              <CardAdvantage type={item.type} cardKey={k} ttc={!showHT} price={showHT ? calculTVA : item.price} advs={item.advs} key={uuidv4()}>
-                {item.label()}
-              </CardAdvantage>
-            )
-          })
+          CardsAdvantagesList.map((item, k) => (
+            <CardAdvantage type={item.type} cardKey={k} ttc={!showHT} price={showHT ? item.price : item.price_ttc} advs={item.advs} key={uuidv4()}>
+              {item.label()}
+            </CardAdvantage>
+          ))
         }
       </CardAdvantagesContainer>
 
       <p className="tarifsInfos">
-        Prix à titre informatif : Changement possible selon les demandes et les choix du client.<br/>
-        Estimation du temps de travail appuyé par un devis.<br/>
-        Maintenance annuelle (engagement 12 mois).<br/>
-        Droit d'auteur & propriété intellectuelle : Vous êtes à la fin du projet, propriétaire de l'ensemble des sources (fichiers) composant celui-ci.<br/>
+        Prix à titre informatif : Changement possible selon les demandes et les choix du client.<br />
+        Estimation du temps de travail appuyé par un devis.<br />
+        Maintenance annuelle (engagement 12 mois).<br />
+        Droit d'auteur & propriété intellectuelle : Vous êtes à la fin du projet, propriétaire de l'ensemble des sources (fichiers) composant celui-ci.<br />
         Paiment possible en plusieurs fois.
       </p>
     </div>

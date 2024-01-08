@@ -15,7 +15,7 @@ import { FaCss3Alt, FaHtml5, FaJs, FaSass } from "react-icons/fa";
 import Template from "./components/Devis/Template";
 
 // Global Variables
-export const TVA_Enabled = true; /* si la tva n'est pas applicable alors "false" */
+export const TVA_Enabled = false; /* si la tva n'est pas applicable alors "false" */
 export const TVA_Produits = 20; /* TVA sur le prix des tarifications */
 export const show_homePageLogo = false; /* Voir ou cacher le logo de la page d'acceuil */
 
@@ -112,7 +112,7 @@ export const devSkills = [
     icon: (info, style) => <FaJs size={dev_iconSize} className="icon" title={info} style={style}/>,
     rotate: 90,
     height: 7,
-    info: "JavaScript est au cœur des langages utilisés par les développeurs web",
+    info: "JavaScript est un langage de programmation polyvalent et orienté objet largement utilisé pour le développement web. Il permet d'ajouter des fonctionnalités interactives aux pages web, de manipuler le contenu dynamiquement, et de créer des applications côté client.",
     colors: ["#FFCA28", "#ffd028"],
     percent: 80
   },
@@ -122,17 +122,17 @@ export const devSkills = [
     icon: (info, style) => <FaCss3Alt size={dev_iconSize} className="icon" title={info} style={style}/>,
     rotate: 90,
     height: 7,
-    info: "CSS est au cœur des langages utilisés par les développeurs web",
+    info: "CSS est un langage de programmation utilisé pour définir la présentation visuelle des pages web.",
     colors: ["#42A5F5", "#2f8cd8"],
     percent: 90
   },
   {
-    lang: "HTML5 (Hyper Text Markdown Language)", 
+    lang: "HTML5 (Hyper Text Markup Language)", 
     key: "lang_html",
     icon: (info, style) => <FaHtml5 size={dev_iconSize} className="icon" title={info} style={style}/>,
     rotate: 90,
     height: 7,
-    info: "HTML5 est au cœur des langages utilisés par les développeurs web",
+    info: "HTML est un langage de balisage utilisé pour créer la structure et le contenu des pages web.",
     colors: ["#CB4827", "#cb5b27"],
     percent: 80
   },
@@ -142,7 +142,7 @@ export const devSkills = [
     icon: (info, style) => <FaSass size={dev_iconSize} className="icon" title={info} style={style}/>,
     rotate: 90,
     height: 7,
-    info: "SCSS est au cœur des langages utilisés par les développeurs web",
+    info: "SCSS est une extension de syntaxe du langage CSS. Il ajoute des fonctionnalités supplémentaires telles que les variables, les mixins et les opérations arithmétiques, facilitant ainsi la création et la gestion des feuilles de style pour les pages web.",
     colors: ["#CC689A", "#cc68bb"],
     percent: 60
   },
@@ -237,23 +237,39 @@ export const CardsAdvantagesModal = {
 export const CardsAdvantagesList = [
   {
     label: () => <strong>SITE VITRINE <br/> STANDARD</strong>,
-    price: 1299,
+    price: 1039.20,
+    price_ttc: 1299,
     type: "standard",
     features: {
-      description: ["Création de Site Web", "Hébergement Pendant 1 ans"],
-      quantity: [1, 2],
-      prix_unitaire_ht: [1040.20, 100.25],
-      prix_total_ht: [1040.2, 200.50]
+      description: [
+        "Création de Site Web", 
+        "Hébergement Pendant 1 ans", 
+        "Mise en place du contenu"
+      ],
+      quantity: [
+        1, 
+        1, 
+        1,
+        1
+      ],
+      prix_unitaire_ht: [
+        1000, 
+        100, 
+        50, 
+        50
+      ],
+      prix_total_ht: [
+        1000, 
+        100, 
+        50, 
+        50
+      ]
     },
     advs: [
       {
         desc: "Développé sur Mesure",
         add: true,
-        tooltip: (
-          <Fragment>
-            Je vous crée un site internet sur mesure avec le framework Javascript NextJS, React.js et SCSS
-          </Fragment>
-        )
+        tooltip: <Fragment>Je vous crée un site internet sur mesure avec le framework Javascript NextJS, React.js et SCSS</Fragment>
       },
       {
         desc: "Panel Administrateur",
@@ -316,7 +332,8 @@ export const CardsAdvantagesList = [
   },
   {
     label: () => <strong>SITE VITRINE <br/> PERSONNALISÉ</strong>,
-    price: 1799,
+    price: 1439.20,
+    price_ttc: 1799,
     type: "standard_perso",
     features: {
       description: ["Création de Site Web", "Hébergement Pendant 1 ans"],
@@ -391,7 +408,8 @@ export const CardsAdvantagesList = [
   },
   {
     label: () => <strong>SITE E-COMMERCE <br/> PERSONNALISÉ</strong>,
-    price: 2999,
+    price: 2399.20,
+    price_ttc: 2999,
     type: "ecommerce",
     features: {
       description: ["Création de Site Web", "Hébergement Pendant 1 ans"],

@@ -9,13 +9,11 @@ import { addDevis, getDevisLength, saveFileAs } from "@/utils/file.util";
 /** @type {import("next").NextApiHandler} */
 export default async (req, res) => {
   const { method, body } = req;
+
   const { 
-    data = {
-      name: "Inconnu",
-    },
-    offer = {
-      label: "Standard",
-    },
+    data = { name: "Inconnu" },
+    tva_enabled = false,
+    offer = { label: "Standard" },
     prices = {
       ttc: 0,
       ht: 0,
@@ -44,8 +42,8 @@ export default async (req, res) => {
           date: actualDate.toLocaleDateString("fr-FR"),
           total_ht: prices.ht,
           total_ttc: prices.ttc,
-          tvaPrice: prices.tvaPrice,
-          tva_pourcent: prices.tva_pourcent,
+          tvaPrice: tva_enabled ? prices.tvaPrice : 0,
+          tva_pourcent: tva_enabled ? prices.tva_pourcent : 0,
           client: {
             name: data.name,
             adress: data.adress,
@@ -62,7 +60,7 @@ export default async (req, res) => {
         await resend.emails.send({
           from: "Gcassinis <contact@cassinisgiovani.fr>",
           to: data.mail,
-          subject: "Demande de Devis",
+          subject: "Demande de Devis - Gcassinis",
           
           react: DevisEmail({
             name: data.name,

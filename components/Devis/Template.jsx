@@ -18,6 +18,7 @@ import APIContext from "@/contexts/APIContext";
 import { findOfferByName } from "@/utils/search.util";
 import { priceWithTVA, getTVA, calcTVAByPrice } from "@/utils/number.util";
 import { jsxToString, transformToUndefined, replaceAllTagWith } from "@/utils/strings.util";
+import { TVA_Enabled } from "@/global.config";
 
 function Template({
   type = "standard" /* standard, ecommerce, standard_perso */
@@ -52,6 +53,7 @@ function Template({
       await axios.post("/api/v1/send-email-devis", {
         API_Key,
         data: newData,
+        tva_enabled: TVA_Enabled,
         prices: {
           ttc: priceWithTVA(offer.price),
           ht: priceWithTVA(offer.price, false, false),

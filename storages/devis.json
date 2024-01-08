@@ -1,9 +1,9 @@
 [
     {
         "number": 1,
-        "date": "22/12/2023",
-        "total_ht": 1299,
-        "total_ttc": 1299,
+        "date": "08/01/2024",
+        "total_ht": 1039.2,
+        "total_ttc": 831.36,
         "tvaPrice": 0,
         "tva_pourcent": 0,
         "client": {
@@ -21,105 +21,12 @@
                 2
             ],
             "prix_unitaire_ht": [
-                1040.2,
-                100.25
+                1000,
+                100
             ],
             "prix_total_ht": [
-                1040.2,
-                200.5
-            ]
-        }
-    },
-    {
-        "number": 2,
-        "date": "22/12/2023",
-        "total_ht": "1039.20",
-        "total_ttc": "1039.20",
-        "tvaPrice": 259.8,
-        "tva_pourcent": 20,
-        "client": {
-            "name": "John Doe",
-            "adress": "11 Avenue du Général de Gaulle, 16000 Angoulême",
-            "tel": "0658552538"
-        },
-        "features": {
-            "description": [
-                "Création de Site Web",
-                "Hébergement Pendant 1 ans"
-            ],
-            "quantity": [
-                1,
-                2
-            ],
-            "prix_unitaire_ht": [
-                1040.2,
-                100.25
-            ],
-            "prix_total_ht": [
-                1040.2,
-                200.5
-            ]
-        }
-    },
-    {
-        "number": 3,
-        "date": "22/12/2023",
-        "total_ht": "1039.20",
-        "total_ttc": "1039.20",
-        "tvaPrice": 259.8,
-        "tva_pourcent": 20,
-        "client": {
-            "name": "John Doe",
-            "adress": "11 Avenue du Général de Gaulle, 16000 Angoulême",
-            "tel": "0658552538"
-        },
-        "features": {
-            "description": [
-                "Création de Site Web",
-                "Hébergement Pendant 1 ans"
-            ],
-            "quantity": [
-                1,
-                2
-            ],
-            "prix_unitaire_ht": [
-                1040.2,
-                100.25
-            ],
-            "prix_total_ht": [
-                1040.2,
-                200.5
-            ]
-        }
-    },
-    {
-        "number": 4,
-        "date": "22/12/2023",
-        "total_ht": 1299,
-        "total_ttc": "1039.20",
-        "tvaPrice": 259.8,
-        "tva_pourcent": 20,
-        "client": {
-            "name": "John Doe",
-            "adress": "11 Avenue du Général de Gaulle, 16000 Angoulême",
-            "tel": "0658552538"
-        },
-        "features": {
-            "description": [
-                "Création de Site Web",
-                "Hébergement Pendant 1 ans"
-            ],
-            "quantity": [
-                1,
-                2
-            ],
-            "prix_unitaire_ht": [
-                1040.2,
-                100.25
-            ],
-            "prix_total_ht": [
-                1040.2,
-                200.5
+                1000,
+                100
             ]
         }
     }
