@@ -1,5 +1,6 @@
 import Heading from "../Heading";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProjectCard(data) {
   return (
@@ -9,7 +10,7 @@ export default function ProjectCard(data) {
     }} className="ProjectCardLink">
       <article className="ProjectCard">
         <div className="miniaContainer">
-          <img src={data.minia} onContextMenu={e => e.preventDefault()} draggable={false} alt={`image du Projet ${data.title} de Gcassinis`} className="minia" />
+          <Image src={data.minia} width={450} height={250} loading="lazy" onContextMenu={e => e.preventDefault()} draggable={false} alt={`image du Projet ${data.title} de Gcassinis`} className="minia" />
         </div>
 
         <div className="ProjectContainer">
