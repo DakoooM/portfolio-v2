@@ -14,7 +14,7 @@ function NotFound() {
 
       <hr className="sep" />
 
-      <Image src="/404.png" alt="Erreur 404 Giovani" className="image404" draggable={false}/>
+      <Image src="/404.png" alt="Erreur 404 image" className="image404" draggable={false}/>
       <Button href="/" leftIcon={<IoIosArrowRoundForward size={25}/>} rounded={10}>Revenir a l'acceuil</Button>
     </div>
   )
