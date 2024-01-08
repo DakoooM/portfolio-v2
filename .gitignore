@@ -1,6 +1,4 @@
-public/
 node_modules/
 .next
-.react-email
 .env.local
 .env.production
