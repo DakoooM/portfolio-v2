@@ -91,7 +91,7 @@ $navbarHeight: 80px;
     .NavbarItem {
       color: var(--color-text-base);
       text-decoration: none;
-      font-family: "Roboto";
+      font-family: "Inter", sans-serif;
       font-weight: 500;
       font-size: 1em;
       transition: color 200ms ease, transform 200ms ease;

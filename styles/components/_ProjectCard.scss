@@ -167,10 +167,6 @@
         text-transform: uppercase;
         color: var(--color-text-base);
       }
-
-      .download {
-
-      }
     }
   
     .gallery {
@@ -182,10 +178,10 @@
       padding: 30px 50px;
       overflow-x: auto;
       overflow-y: hidden;
-      cursor: grabbing;
+      cursor: grab;
 
       &:active {
-        cursor: grab;
+        cursor: grabbing;
       }
 
       @include for-size(tablet-portrait-up) {
@@ -199,6 +195,7 @@
         border-radius: 10px;
         user-select: none;
         margin-left: auto;
+        aspect-ratio: 16 / 9;
       }
   
       .video {
