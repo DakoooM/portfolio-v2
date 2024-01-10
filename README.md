@@ -1,5 +1,7 @@
 # Gcassinis Web (NextJS)
 
+[![wakatime](https://wakatime.com/badge/user/cd7fd9ea-e1d6-44f3-9e27-2f7f13627930/project/018bcef2-34f5-4bf4-ae24-776fd145b331.svg)](https://wakatime.com/badge/user/cd7fd9ea-e1d6-44f3-9e27-2f7f13627930/project/018bcef2-34f5-4bf4-ae24-776fd145b331)
+
 Ce site web a été crée dans le but de lancer mon auto-entreprise en tant que freelance.
 
 Je partage le code source de mon site web dans le but de vous éclairer dans la construction d'une application nextjs et surtout d'apporter une preuve de mes compétences a mes futurs client(s).
@@ -15,17 +17,20 @@ ____
 
 4. `pm2 start ecosystem.config.js`
 
+*Précision: veuillez installer le module pm2 sur votre VPS avant de tenter d'éxecuter la 4ème tache au dessus.*
+
 ____
 
 ### Comment démarrer le projet en **localhost** ?
 1. - `npm run dev`
 
-#### Les variables d'environnement
 ____
+
+### Les variables d'environnement
 ```js
-# Api key for https://resend.com/
+// Api key for https://resend.com/
 RESEND_API_KEY="API_KEY"
 
-# Personnal API Key for /api
+// Personnal API Key for /api
 API_KEY="PERSONNAL_API_KEY"
 ```
