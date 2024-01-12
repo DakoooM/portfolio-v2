@@ -68,9 +68,9 @@
       .ModalTitle {
         display: block;
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 500;
         color: var(--color-text-base);
-        @include fontResponsive($min: 17px, $viewwidth: 6vw, $default: 22px);
+        @include fontResponsive($min: 15px, $viewwidth: 6vw, $default: 22px);
       }
       
       .ModalClose {
@@ -84,7 +84,7 @@
     
     .ModalWrapper {
       flex: 1;
-      // padding: 20px;
+      padding: 20px;
       display: flex;
       width: 100%;
       height: calc(100% - 60px);
