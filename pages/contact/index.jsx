@@ -51,7 +51,15 @@ function ContactPage() {
           <InputWithLabel maxWidth="90%" type="tel" pattern="[0-6]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" label="Téléphone *" register={register} required uniqueId="phone" placeholder="06 58 55 25 38"/>
         </div>
 
-        <TextAreaWithLabel maxWidth="90%" uniqueId="description" placeholder="Description de 100 caractères minimum" required register={register} label="Votre demande *"/>
+        <TextAreaWithLabel 
+          maxWidth="90%" 
+          uniqueId="description"
+          minLength={100} 
+          placeholder="Description détailler de 100 caractères minimum" 
+          required 
+          register={register} 
+          label="Votre demande *"
+        />
 
         <Button _type="submit" isLoading={isLoading} disabled={isLoading} rounded={15} style={{ fontWeight: "bold", fontSize: 17 }} leftIcon={<IoMailUnreadOutline size={25}/>}>Envoyer la demande</Button>
       </form>

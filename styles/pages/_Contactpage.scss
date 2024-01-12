@@ -35,7 +35,11 @@
 
     .row-group {
       width: 100%;
-      @include flex(flex, center, center, row, wrap, 20px, 50px);
+      @include flex(flex, center, center, row, nowrap, 20px, 50px);
+
+      @include for-size(tablet-landscape-up) {
+        flex-wrap: wrap;
+      }
     }
   }
 }
