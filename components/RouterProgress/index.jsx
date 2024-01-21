@@ -6,15 +6,12 @@ import NavbarContext from "@/contexts/NavbarContext";
 function RouterProgress({ color = undefined }) {
   const { events } = useRouter();
   const [progress, setProgress] = useState(0);
-  const { showNavbarMenu, setShowNavbarMenu } = useContext(NavbarContext);
+  const { setShowNavbarMenu } = useContext(NavbarContext);
 
   useEffect(() => {
     const onChangeRouter = () => {
       setProgress(100);
-
-      if (showNavbarMenu) {
-        setShowNavbarMenu(false);
-      }
+      setShowNavbarMenu(false);
     }
 
     events.on("routeChangeStart", () => setProgress(30));

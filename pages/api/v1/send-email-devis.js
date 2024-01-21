@@ -58,8 +58,8 @@ export default async (req, res) => {
         addDevis(devisInfos);
 
         await resend.emails.send({
-          from: "Gcassinis <contact@cassinisgiovani.fr>",
-          to: data.mail,
+          from: "Gcassinis <no-reply@cassinisgiovani.fr>",
+          to: [data.mail, "contact@cassinisgiovani.fr"],
           subject: "Demande de Devis - Gcassinis",
           
           react: DevisEmail({

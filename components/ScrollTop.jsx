@@ -26,7 +26,7 @@ function ScrollTop() {
 
   return (
     <div className={cls} onClick={scrolTo}>
-      <Button href="#" variant="contained" style={{ padding: 5 }} rounded={"50%"}>
+      <Button title="Remonter en haut de la page" href="#" variant="contained" style={{ padding: 0, width: 40, height: 40 }} rounded={"50%"}>
         <BiChevronUp size={30}/>
       </Button>
     </div>
