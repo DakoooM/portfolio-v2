@@ -32,6 +32,7 @@ function Footer() {
               <span className="name">Gcassinis</span>
             </div>
 
+
             <p className="desc">Giovani Cassinis Développeur web freelance Siret: 98132827100011</p>
 
             <div className="socials">

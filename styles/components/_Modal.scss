@@ -70,7 +70,7 @@
         text-transform: uppercase;
         font-weight: 500;
         color: var(--color-text-base);
-        @include fontResponsive($min: 15px, $viewwidth: 6vw, $default: 22px);
+        @include fontResponsive($min: 15px, $viewwidth: 4vw, $default: 22px);
       }
       
       .ModalClose {
